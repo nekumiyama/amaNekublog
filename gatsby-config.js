@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `amaNekublog`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `ネク`,
+      summary: `個人ゲーム開発を夢見るITエンジニア。ドット絵・イラスト・デザインにも挑戦したいと思っている。最近一児の新米パパになり子育てに奮闘中。`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    description: `ゲーム・プログラミング・ドット絵・イラスト・デザインを中心にお役立ち情報から個人的な考えまで”あまねく”発信します。`,
+    siteUrl: `https://nekumiyama.com/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `nekumiyama`,
     },
   },
   plugins: [
@@ -60,13 +60,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `amaNekublog | ネクのブログ`,
+        short_name: `amaNekublog`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/avater.png`,
       },
     },
     `gatsby-plugin-react-helmet`,
