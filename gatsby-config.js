@@ -6,7 +6,7 @@ module.exports = {
       summary: `個人ゲーム開発を夢見るITエンジニア。ドット絵・イラスト・デザインにも挑戦したいと思っている。最近一児の新米パパになり子育てに奮闘中。`,
     },
     description: `ゲーム・プログラミング・ドット絵・イラスト・デザインを中心にお役立ち情報から個人的な考えまで”あまねく”発信します。`,
-    siteUrl: `https://nekumiyama.com/`,
+    siteUrl: `https://nekumiyama.github.io/amaNekublog`,
     social: {
       twitter: `nekumiyama`,
     },
