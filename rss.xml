@@ -1,4 +1,299 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[amaNekublog]]></title><description><![CDATA[ゲーム・プログラミング・ドット絵・イラスト・デザインを中心にお役立ち情報から個人的な考えまで”あまねく”発信します。]]></description><link>https://nekumiyama.com</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 04 Sep 2020 22:58:31 GMT</lastBuildDate><item><title><![CDATA[ブログ、始めました。]]></title><description><![CDATA[Who are me 初めまして！ネクといいます😄 簡単な自己紹介をします。 なぜブログを始めようと思ったか 成長したい📈 最近なんだか自分の成長を感じられなくなり、こんな不安がよぎりました。「このままだと世にいるIT…]]></description><link>https://nekumiyama.com/20200904_hello-world/</link><guid isPermaLink="false">https://nekumiyama.com/20200904_hello-world/</guid><pubDate>Fri, 04 Sep 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Who are me&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[amaNekublog]]></title><description><![CDATA[ゲーム・プログラミング・ドット絵・イラスト・デザインを中心にお役立ち情報から個人的な考えまで”あまねく”発信します。]]></description><link>https://nekumiyama.github.io/amaNekublog</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 06 Sep 2020 08:27:39 GMT</lastBuildDate><item><title><![CDATA[gatsby-starter-blogをベースにブログ内容を修正してデプロイする]]></title><description><![CDATA[今回は、GatsbyJSでブログを始めようと決めてから、デプロイするまでに行ったことを解説します。GatsbyJSのインストールとgatsby-starter-blogを使ったGatsbyJS…]]></description><link>https://nekumiyama.github.io/amaNekublog/20200906_first-deploy/</link><guid isPermaLink="false">https://nekumiyama.github.io/amaNekublog/20200906_first-deploy/</guid><pubDate>Sun, 06 Sep 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;今回は、GatsbyJSでブログを始めようと決めてから、デプロイするまでに行ったことを解説します。GatsbyJSのインストールとgatsby-starter-blogを使ったGatsbyJSプロジェクトの作成までは済んでいる前提です。変更内容は、ブログの内容やプロフィールが主になります。&lt;/p&gt;
+&lt;h3&gt;1.現状の理解&lt;/h3&gt;
+&lt;hr&gt;
+&lt;h3&gt;1-1.イメージ&lt;/h3&gt;
+&lt;p&gt;gatsby-starter-blogそのままだと、こんな状態です。これから自分用の内容に置き換えていきます。&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/amaNekublog/static/e5a1ca44f509938f846f42dd595b4677/ce6cc/gatsby-starter-blog-image.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 58.78378378378378%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsSAAALEgHS3X78AAABcElEQVQoz6VTPW/CMBTs/xcKG4IBMTCwMrAhsdOxVQfUVqoExflwvuzEceIkV9tV2tACasWTTs+y/Z7u7tl30NG2rUmo6xp5nkNKiSzLUJal3WOMQSmFoijsWVVVtqZDP+76DU3hbDbDYrHAaDTCYDDAer2G4ziYTqeYTCYYj8fYbDb2ftM01xumaYrh0MF8PsdyucR+v0eSJJYd14wNQ6PAMO/qutounzQ0BdvtvcYWq9UKjZb7l+izPGmoqhKH1531iXMO4no4EA8ejRBECXydwzgB00qMmjiO7N2LDKVm+PT4gFR7GYUhQpbDZ9KC8hIBl2BCD0R7Z4ZlYHz81fAn7f/GRcll3eA5EHihEju/AOHqRg/1NF0/AE0Y0kwg5TmEEHZY/Sxl8bU+K/n7YSsEHkEYeBouqOfieDzCJQTkSOz6XcNzP/cppdefjWpaUFEj1PAzhVQ2t0mutIdvPgNJCrisRCyMh+3JNzuHfo8PUGydZEos4mYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;gatsby-starter-blog-image&quot;
+        title=&quot;gatsby-starter-blog-image&quot;
+        src=&quot;/amaNekublog/static/e5a1ca44f509938f846f42dd595b4677/fcda8/gatsby-starter-blog-image.png&quot;
+        srcset=&quot;/amaNekublog/static/e5a1ca44f509938f846f42dd595b4677/12f09/gatsby-starter-blog-image.png 148w,
+/amaNekublog/static/e5a1ca44f509938f846f42dd595b4677/e4a3f/gatsby-starter-blog-image.png 295w,
+/amaNekublog/static/e5a1ca44f509938f846f42dd595b4677/fcda8/gatsby-starter-blog-image.png 590w,
+/amaNekublog/static/e5a1ca44f509938f846f42dd595b4677/efc66/gatsby-starter-blog-image.png 885w,
+/amaNekublog/static/e5a1ca44f509938f846f42dd595b4677/c83ae/gatsby-starter-blog-image.png 1180w,
+/amaNekublog/static/e5a1ca44f509938f846f42dd595b4677/ce6cc/gatsby-starter-blog-image.png 1551w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;※デモサイトは&lt;a href=&quot;https://gatsby-starter-blog-demo.netlify.app/&quot;&gt;こちら&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;1-2.フォルダ構成を知る&lt;/h3&gt;
+&lt;p&gt;変更するにはまず、どこに何があるのかを知る必要があります。&lt;br&gt;
+※❔が付いている部分はまだ詳しく理解できていないです&gt;&amp;#x3C;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;root
+|-- /content          #記事用
+    |-- /assets         #記事共通で使う素材
+    |-- /blog           #記事本体。記事個別で使う素材もここ
+|-- /node_modules     #使用nodeモジュール
+|-- /public           #ビルドでできる。公開用
+|-- /src              #ソースコード
+    |-- /components     #任意。ページ共通で使うコンポーネント。
+    |-- /pages          #必須。ここにあるファイルが自動的にページになる。フォルダ名がそのページへのパスになる。
+    |-- /templates      #❔ブログポストのテンプレを配置。GraphqlでContentsから動的に記事を作成(注入？)できる。
+    |-- /utils          #ユーティリティ
+|-- /static           #処理せずそのまま配置したいファイル類。favicon.icoとか
+|-- gatsby-config.js  #設定のメインファイル。サイトのメタデータや使用するプラグイン
+|-- gatsby-node.js    #❔nodeAPI（記事を生成する側のファイル）に対して影響を与える設定類
+|-- gatsby-ssr.js     #❔ServerSideRenderingAPIに対して影響を与える設定類
+|-- gatsby-browser.js #❔browserAPI（ブラウザで表示する側のファイル）に対して影響を与える設定類&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;詳細：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;content                 #記事用
+|-- /assets               #記事共通で使う素材
+    |-- gatby-icon.png      #サイトのfavicon用
+    |-- profile-pic.png     #プロフィール画像
+|-- /blog                 #記事本体。記事個別で使う素材もここ
+    |-- /hello-wolrd
+        |-- index.md
+        |-- salty_egg.jpg
+    |-- ...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;src                      #ソースコード
+|-- /components            #ページ共通で使うコンポーネント。
+    |-- bio.js               #biography=自己紹介。
+    |-- layout.js            #❔サイト全体のレイアウト。header、main、footer。
+    |-- seo.js               #❔SEOに必要なもの（そもそもSEOをよくわかってない）
+|-- /pages                 #必須。ここにあるファイルが自動的にページになる。フォルダ名がそのページへのパスになる。
+    |-- 404.js               #404のページ
+    |-- index.js             #ホームページ
+    |-- using-typescript.tsx #❔typescriptを使うために必要なファイルらしい。使わないなら消していいらしい
+|-- /templates             #ブログポストのテンプレを配置。GraphqlでContentsから動的に記事を作成(注入？)できる。
+    |-- blog-post.js         #記事ページのベースとなるページ（多分）
+|-- /utils                 #ユーティリティ
+    |-- typography.js        #❔typographyで使う設定&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;statics
+|-- favicon.ico   #ブラウザのタブ部分に出てくる画像
+|-- robots.txt    #❔robots.txt（って何やろ...？）&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;参考：&lt;br&gt;
+&lt;a href=&quot;https://www.gatsbyjs.com/docs/gatsby-project-structure/&quot;&gt;Gatsby Project Structure&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://suzukalight.com/2019-07-01-file-structure/&quot;&gt;Gatsby のファイル構成 | suzukalight.com&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;2.変更箇所を列挙する&lt;/h2&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;サイトのメタデータ（作成者名とか）&lt;/li&gt;
+&lt;li&gt;プロフィール画像&lt;/li&gt;
+&lt;li&gt;favicon&lt;/li&gt;
+&lt;li&gt;記事&lt;/li&gt;
+&lt;li&gt;日付をYYYY.MM.DD形式に&lt;/li&gt;
+&lt;li&gt;コピーライト&lt;/li&gt;
+&lt;li&gt;プロフィールの細かいところ&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;これだけ！&lt;/p&gt;
+&lt;h2&gt;3.必要な変更箇所を変更する&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h3&gt;3-1.サイトのメタデータ（作成者名とか）&lt;/h3&gt;
+&lt;p&gt;/gatsby-config.jsを変更します。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  siteMetadata&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    title&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;amaNekublog&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    author&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;ネク&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      summary&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;個人ゲーム開発を夢見るITエンジニア。ドット絵・イラスト・デザインにも挑戦したいと思っている。&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    description&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;ゲーム・プログラミング・ドット絵・イラスト・デザインを中心にお役立ち情報から個人的な考えまで”あまねく”発信します。&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    siteUrl&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;https://nekumiyama.com/&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    social&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      twitter&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;nekumiyama&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;3-2.プロフィール画像&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;/contents/assets内のprofile-pic.jpgを変更します。&lt;/li&gt;
+&lt;li&gt;※ファイル名を変えたい場合は/src/components/bio.jsの以下を変更しましょう。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;avatar&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;absolutePath&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; regex&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/avater.png/&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;3-3.favicon&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;今回はプロフィール画像を再利用します。&lt;/li&gt;
+&lt;li&gt;/gatsby-config.jsを編集します。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  resolve&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;gatsby-plugin-manifest&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  options&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;amaNekublog | ネクのブログ&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;//☆ついでに変更&lt;/span&gt;
+    short_name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;amaNekublog&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;          &lt;span class=&quot;token comment&quot;&gt;//☆ついでに変更&lt;/span&gt;
+    start_url&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    background_color&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;#ffffff&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    theme_color&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;#663399&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    display&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;minimal-ui&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    icon&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;content/assets/avater.png&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;   &lt;span class=&quot;token comment&quot;&gt;//★ここ&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;※/static内のfavicon.icoは変更しなくてよい（引っ掛かるところだった😅）&lt;/p&gt;
+&lt;h3&gt;3-4.記事&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;/blog内の/hello-worldフォルダ以外を削除します。&lt;/li&gt;
+&lt;li&gt;/hello-worldをリネームします。⇒先頭に公開日をつけて日付順に並ばせる狙い&lt;/li&gt;
+&lt;li&gt;/hello-worldの記事内容を更新します。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;3-5.日付をYYYY.MM.DD形式に&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;/src/pages/index.jsを変更します。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; pageQuery &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; graphql&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: &quot;YYYY.MM.DD&quot;)  //★ここ
+            title
+            description
+          }
+        }
+      }
+    }
+  }
+&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;/src/templates/blog-post.jsを変更します。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; pageQuery &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; graphql&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;
+  query BlogPostBySlug($slug: String!) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      id
+      excerpt(pruneLength: 160)
+      html
+      frontmatter {
+        title
+        date(formatString: &quot;YYYY.MM.DD&quot;)  //★ここ
+        description
+      }
+    }
+  }
+&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;3-6.コピーライト&lt;/h3&gt;
+&lt;p&gt;/src/components/layout.jsを変更します。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;footer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    Â© &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getFullYear&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;, Neku Miyama
+&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;footer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;参考：（そもそもコピーライトの書き方がわからなかったため参考にしました）&lt;br&gt;
+&lt;a href=&quot;https://deco8.net/web/footer-copyright-html-tag/&quot;&gt;【保存版】もう迷わない！フッターに表記するコピーライトの正しい書き方とタグ【HTML5・PHP・JavaScript】&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;3-7.プロフィールの細かいところ&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;「Written by ネク」→単純に「ネク」にして、改行したい&lt;/li&gt;
+&lt;li&gt;「You should follow him on Twitter」→改行して「Twitter」にしたい&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;/src/components/bio.jsを変更します。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;strong&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;author&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;strong&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;author&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;summary&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;a&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;https://twitter.com/&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;social&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;twitter&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;Twitter&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;a&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;3-8.完成！&lt;/h3&gt;
+&lt;p&gt;和文のせいか見た目がよくないですが、、、ブログ内容は自分のものになりました！&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/amaNekublog/static/c68e42c84d22d6d9568eebfb136edd7a/19a15/amaNekublog-image1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 62.16216216216216%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsSAAALEgHS3X78AAABYElEQVQoz6VTy27CMBDMDyMVJCTCGXGCb+LcXjj10ENFVSE1iUJeduL4lanXJVFAIJC60mhtxzsezzpB13WgoCyEAOccSilEUYSqqpAkCaSUyLIMcRyDMQatNay1Q904AmOMH+x2O7xMp9hsNlitVpjNZlgsFpjP59hutwjDEMvlEuv1GpPJBIfDwdcR8VhU0E+0khBOHanM8xxt23o1pJiUEuq69tjv9/7bWGGfA3sevEcxXo9HWKWHkx8F7fE439Ir7Ak/fmK8fX5BNrVXRZ6VZYksz/ycQKopM8bPmXl/W3ergdCfNDL2O2XIuYBxxmtt/gocEVlBzSLQWtM0Hn0MV+4HRGptB2k66Me3vSC6aMqt1t8quIfrPYNCoSxKYZDVGnGlcHKZ1q5VPIqBsHZ+JOkJvHHPRUhw4fwy/yCk10/GUzNa0bhGCHR3/oanCImsKAqPNE1RuCdz7c8z8QsAbJ7gL0k9ywAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;amaNekublog-image1&quot;
+        title=&quot;amaNekublog-image1&quot;
+        src=&quot;/amaNekublog/static/c68e42c84d22d6d9568eebfb136edd7a/fcda8/amaNekublog-image1.png&quot;
+        srcset=&quot;/amaNekublog/static/c68e42c84d22d6d9568eebfb136edd7a/12f09/amaNekublog-image1.png 148w,
+/amaNekublog/static/c68e42c84d22d6d9568eebfb136edd7a/e4a3f/amaNekublog-image1.png 295w,
+/amaNekublog/static/c68e42c84d22d6d9568eebfb136edd7a/fcda8/amaNekublog-image1.png 590w,
+/amaNekublog/static/c68e42c84d22d6d9568eebfb136edd7a/efc66/amaNekublog-image1.png 885w,
+/amaNekublog/static/c68e42c84d22d6d9568eebfb136edd7a/c83ae/amaNekublog-image1.png 1180w,
+/amaNekublog/static/c68e42c84d22d6d9568eebfb136edd7a/19a15/amaNekublog-image1.png 1229w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/amaNekublog/static/c6de6df6751d4122a8fc4877be000c1d/20f89/amaNekublog-image2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.21621621621621%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsSAAALEgHS3X78AAABGUlEQVQ4y5WS22qFMBBF/f/P8Av8A8EnHwVBqiinIhV8sVrjJdG4mwmkPdrjpRuGQJLZrLlY67qC9FnXiOM3FTGSJMHj8Y5XMv/NuZdlHpqmQZqmyLIMeZ7r6LoOfd9jmiZwziGlPDXbGJZlCdd1dVRVhTAMYds2HMeB53nwfV/TG8NLQqEI2rbVJKRlWSCE0Oc8zz9xu2RKpgQqy5xHMoT72BgWRYEgCHQfoyjCh2rBPvlK9Md6xjd0VCYF3dPdnfhDSNOkSQ/DAMYYJi7Q1iX4+HVa5mHJXK0GrQmZ9cqUVkVqSom70iX/EjJwwY+HcINSE5oEImKsV72TLz/eGcrGkPaPTGkoV8t7amiSqH/jOOp9/C/Vs74BVTP7X0fBhu8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;amaNekublog-image2&quot;
+        title=&quot;amaNekublog-image2&quot;
+        src=&quot;/amaNekublog/static/c6de6df6751d4122a8fc4877be000c1d/fcda8/amaNekublog-image2.png&quot;
+        srcset=&quot;/amaNekublog/static/c6de6df6751d4122a8fc4877be000c1d/12f09/amaNekublog-image2.png 148w,
+/amaNekublog/static/c6de6df6751d4122a8fc4877be000c1d/e4a3f/amaNekublog-image2.png 295w,
+/amaNekublog/static/c6de6df6751d4122a8fc4877be000c1d/fcda8/amaNekublog-image2.png 590w,
+/amaNekublog/static/c6de6df6751d4122a8fc4877be000c1d/efc66/amaNekublog-image2.png 885w,
+/amaNekublog/static/c6de6df6751d4122a8fc4877be000c1d/c83ae/amaNekublog-image2.png 1180w,
+/amaNekublog/static/c6de6df6751d4122a8fc4877be000c1d/20f89/amaNekublog-image2.png 1213w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2&gt;4.デプロイする&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;以下のGatsbyJSの公式ページにGitHub Pagesへのデプロイ方法が説明されているので、これを参考にGitHub Pagesにデプロイしてみます。（なんと無料！🤑）&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.gatsbyjs.com/docs/how-gatsby-works-with-github-pages/&quot;&gt;How Gatsby Works with GitHub Pages&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;手順&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;ローカルで&lt;code class=&quot;language-text&quot;&gt;git commit&lt;/code&gt;しておく&lt;/li&gt;
+&lt;li&gt;GitHubにリポジトリを作成&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;git merge --allow-unrelated-histories origin/master&lt;/code&gt; をして強制的に？マージ&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;git push -u origin master&lt;/code&gt; でGitHubにpush&lt;/li&gt;
+&lt;li&gt;参考サイトの手順でデプロイ用の設定を実施&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;npm run deploy&lt;/code&gt; すればデプロイ完了🚀&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;※&lt;code class=&quot;language-text&quot;&gt;npm run deploy&lt;/code&gt;  で「fatal: A branch named ‘gh-pages’ already exists.」と出たら、node_modules/.cache/gh-pagesを削除する。&lt;/p&gt;
+&lt;p&gt;以上です！　次回はブログの「テキスト装飾」を変える方法を解説します！&lt;/p&gt;</content:encoded></item><item><title><![CDATA[ブログ、始めました。]]></title><description><![CDATA[Who are me 初めまして！ネクといいます😄 簡単な自己紹介をします。 なぜブログを始めようと思ったか 成長したい📈 最近なんだか自分の成長を感じられなくなり、こんな不安がよぎりました。「このままだと世にいるIT…]]></description><link>https://nekumiyama.github.io/amaNekublog/20200904_hello-world/</link><guid isPermaLink="false">https://nekumiyama.github.io/amaNekublog/20200904_hello-world/</guid><pubDate>Fri, 04 Sep 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Who are me&lt;/h2&gt;
 &lt;hr&gt;
 &lt;p&gt;初めまして！ネクといいます😄&lt;br&gt;
 簡単な自己紹介をします。&lt;/p&gt;

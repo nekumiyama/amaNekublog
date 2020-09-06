@@ -1,0 +1,316 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:100%/1.7 'Noto Sans JP',sans-serif;box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsl(210,50%,25%);font-family:'Noto Sans JP',sans-serif;font-weight:normal;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.7rem;}h1{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.7rem;color:hsl(210,50%,20%);font-family:'M PLUS Rounded 1c',sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:2.1rem;line-height:1.1;letter-spacing:0.08em;}h2{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.7rem;color:hsl(210,50%,20%);font-family:'M PLUS Rounded 1c',sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:1.56074rem;line-height:1.1;}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.7rem;color:hsl(210,50%,20%);font-family:'M PLUS Rounded 1c',sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:1.34551rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.7rem;color:hsl(210,50%,20%);font-family:'M PLUS Rounded 1c',sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.7rem;color:hsl(210,50%,20%);font-family:'M PLUS Rounded 1c',sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:0.8621rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.7rem;color:hsl(210,50%,20%);font-family:'M PLUS Rounded 1c',sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:0.80045rem;line-height:1.1;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.7rem;}ul{margin-left:1.7rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.7rem;list-style-position:outside;list-style-image:none;}ol{margin-left:1.7rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.7rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.7rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.7rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.7rem;text-align:justify;word-break:break-all;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.7rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.7rem;font-size:0.85rem;line-height:1.7rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.7rem;font-size:1rem;line-height:1.7rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.7rem;}blockquote{margin-left:1.7rem;margin-right:1.7rem;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.7rem;}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.7rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.7rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.7rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.0rem;background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.7rem;}b{font-weight:bold;}strong{font-weight:bold;}dt{font-weight:bold;}th{font-weight:bold;}li{margin-bottom:0px;}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.7rem;margin-bottom:calc(1.7rem / 2);margin-top:calc(1.7rem / 2);}li > ul{margin-left:1.7rem;margin-bottom:calc(1.7rem / 2);margin-top:calc(1.7rem / 2);}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:calc(1.7rem / 2);}code{font-size:0.85rem;line-height:1.7rem;}kbd{font-size:0.85rem;line-height:1.7rem;}samp{font-size:0.85rem;line-height:1.7rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:1.13333rem;padding-right:1.13333rem;padding-top:0.85rem;padding-bottom:calc(0.85rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}h1,h2,h3,h4,h5,h6{line-height:1.2;margin-bottom:1.0rem;}a{text-decoration:none;color:#0073bc;}a:hover{text-decoration:underline;color:#33CCFF;}pre[class*='language-']{margin:0 0 1.7rem !important;}</style><style data-href="/amaNekublog/styles.21bfe8932cb72e5bf3a0.css">@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:100;src:local("Montserrat Thin "),local("Montserrat-Thin"),url(/amaNekublog/static/montserrat-latin-100-191cc9f50f3b76b9617cb383f19acb7d.woff2) format("woff2"),url(/amaNekublog/static/montserrat-latin-100-370318464551d5f25b0f0a78f374faac.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:100;src:local("Montserrat Thin italic"),local("Montserrat-Thinitalic"),url(/amaNekublog/static/montserrat-latin-100italic-bdeaeb79db315697bd173a55b097dc18.woff2) format("woff2"),url(/amaNekublog/static/montserrat-latin-100italic-ecf7d49386e8f265878e735db34a7c4b.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:200;src:local("Montserrat Extra Light "),local("Montserrat-Extra Light"),url(/amaNekublog/static/montserrat-latin-200-85d5ef9db7f2dc6979172a4a3b2c57cb.woff2) format("woff2"),url(/amaNekublog/static/montserrat-latin-200-1fc98e126a3d152549240e6244d7e669.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:200;src:local("Montserrat Extra Light italic"),local("Montserrat-Extra Lightitalic"),url(/amaNekublog/static/montserrat-latin-200italic-49095760a498d024fe1a85a078850df9.woff2) format("woff2"),url(/amaNekublog/static/montserrat-latin-200italic-fe46cf8b9462c820457d3bf537e4057f.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:300;src:local("Montserrat Light "),local("Montserrat-Light"),url(/amaNekublog/static/montserrat-latin-300-7c3daf12b706645b5d3710f863a4da04.woff2) format("woff2"),url(/amaNekublog/static/montserrat-latin-300-8dc95fab9cf98d02ca8d76e97d3dff60.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:300;src:local("Montserrat Light italic"),local("Montserrat-Lightitalic"),url(/amaNekublog/static/montserrat-latin-300italic-f20b178ca2024a5eac8e42e6649db86c.woff2) format("woff2"),url(/amaNekublog/static/montserrat-latin-300italic-3fe16939288856e8e828fa2661bf2354.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:400;src:local("Montserrat Regular "),local("Montserrat-Regular"),url(/amaNekublog/static/montserrat-latin-400-bc3aa95dca08f5fee5291e34959c27bc.woff2) format("woff2"),url(/amaNekublog/static/montserrat-latin-400-8102c4838f9e3d08dad644290a9cb701.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:400;src:local("Montserrat Regular italic"),local("Montserrat-Regularitalic"),url(/amaNekublog/static/montserrat-latin-400italic-5cad650422a7184467af5a4d17b264c4.woff2) format("woff2"),url(/amaNekublog/static/montserrat-latin-400italic-d191f22af3bb50902b99ac577f81a322.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:500;src:local("Montserrat Medium "),local("Montserrat-Medium"),url(/amaNekublog/static/montserrat-latin-500-92d16e458625f4d2c8940f6bdca0ff09.woff2) format("woff2"),url(/amaNekublog/static/montserrat-latin-500-8b763220218ffc11c57c84ddb80e7b26.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:500;src:local("Montserrat Medium italic"),local("Montserrat-Mediumitalic"),url(/amaNekublog/static/montserrat-latin-500italic-47bfcca6b69d6a9acca7a8bff17193e2.woff2) format("woff2"),url(/amaNekublog/static/montserrat-latin-500italic-72c01f753c3940c0b9cb6bf2389caddf.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:600;src:local("Montserrat SemiBold "),local("Montserrat-SemiBold"),url(/amaNekublog/static/montserrat-latin-600-6fb1b5623e528e27c18658fecf5ee0ee.woff2) format("woff2"),url(/amaNekublog/static/montserrat-latin-600-7c839d15a6f54e7025ba8c0c4b333e8f.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:600;src:local("Montserrat SemiBold italic"),local("Montserrat-SemiBolditalic"),url(/amaNekublog/static/montserrat-latin-600italic-60789af1c9338ed1a9546722ec54b4f7.woff2) format("woff2"),url(/amaNekublog/static/montserrat-latin-600italic-f3d4de8d0afb19e777c79032ce828e3d.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:700;src:local("Montserrat Bold "),local("Montserrat-Bold"),url(/amaNekublog/static/montserrat-latin-700-39d93cf678c740f9f6b2b1cfde34bee3.woff2) format("woff2"),url(/amaNekublog/static/montserrat-latin-700-80f10bd382f0df1cd650fec59f3c9394.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:700;src:local("Montserrat Bold italic"),local("Montserrat-Bolditalic"),url(/amaNekublog/static/montserrat-latin-700italic-ba136d97b14e82284dd595e257f11c47.woff2) format("woff2"),url(/amaNekublog/static/montserrat-latin-700italic-8c98142b425630821139c24bd1698700.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:800;src:local("Montserrat ExtraBold "),local("Montserrat-ExtraBold"),url(/amaNekublog/static/montserrat-latin-800-b7018be9ed6cd94da8b6675b3a468c3b.woff2) format("woff2"),url(/amaNekublog/static/montserrat-latin-800-9a9befcf50d64f9d2d19d8b1d1984add.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:800;src:local("Montserrat ExtraBold italic"),local("Montserrat-ExtraBolditalic"),url(/amaNekublog/static/montserrat-latin-800italic-540ffdd223d1a9ad3d4e678e1a23372e.woff2) format("woff2"),url(/amaNekublog/static/montserrat-latin-800italic-897086f99f4e1f45e6b1e9368527d0bc.woff) format("woff")}@font-face{font-family:Montserrat;font-style:normal;font-display:swap;font-weight:900;src:local("Montserrat Black "),local("Montserrat-Black"),url(/amaNekublog/static/montserrat-latin-900-58cd789700850375b834e8b6776002eb.woff2) format("woff2"),url(/amaNekublog/static/montserrat-latin-900-26d42c9428780e545a540bbb50c84bce.woff) format("woff")}@font-face{font-family:Montserrat;font-style:italic;font-display:swap;font-weight:900;src:local("Montserrat Black italic"),local("Montserrat-Blackitalic"),url(/amaNekublog/static/montserrat-latin-900italic-451157bc8861fe54f523b3669a3def71.woff2) format("woff2"),url(/amaNekublog/static/montserrat-latin-900italic-a8ec4957e1c24f5793305763ad9845b3.woff) format("woff")}@font-face{font-family:Merriweather;font-style:normal;font-display:swap;font-weight:300;src:local("Merriweather Light "),local("Merriweather-Light"),url(/amaNekublog/static/merriweather-latin-300-b1158cfcd4aacb9d8fb61625e37af46a.woff2) format("woff2"),url(/amaNekublog/static/merriweather-latin-300-cc7de05e166e90320d7d896e0f72a19d.woff) format("woff")}@font-face{font-family:Merriweather;font-style:italic;font-display:swap;font-weight:300;src:local("Merriweather Light italic"),local("Merriweather-Lightitalic"),url(/amaNekublog/static/merriweather-latin-300italic-8fe52a48089d6ebe46db0b8e7cc66263.woff2) format("woff2"),url(/amaNekublog/static/merriweather-latin-300italic-e1331f5397c2a673f9d3765138debdb5.woff) format("woff")}@font-face{font-family:Merriweather;font-style:normal;font-display:swap;font-weight:400;src:local("Merriweather Regular "),local("Merriweather-Regular"),url(/amaNekublog/static/merriweather-latin-400-8276fdb72ae8f4714d4e6eba704cc39f.woff2) format("woff2"),url(/amaNekublog/static/merriweather-latin-400-69f09800f4f6479d06e44eba837df872.woff) format("woff")}@font-face{font-family:Merriweather;font-style:italic;font-display:swap;font-weight:400;src:local("Merriweather Regular italic"),local("Merriweather-Regularitalic"),url(/amaNekublog/static/merriweather-latin-400italic-3a9be9ea9f7aa4af6de7307df21d9fc0.woff2) format("woff2"),url(/amaNekublog/static/merriweather-latin-400italic-d76079ed7541a433a54f79316de086e9.woff) format("woff")}@font-face{font-family:Merriweather;font-style:normal;font-display:swap;font-weight:700;src:local("Merriweather Bold "),local("Merriweather-Bold"),url(/amaNekublog/static/merriweather-latin-700-fa534be7ffa380e39a7f6e03bf9a5e03.woff2) format("woff2"),url(/amaNekublog/static/merriweather-latin-700-ba56ea84b8084b7ff9677f50d3cd81bd.woff) format("woff")}@font-face{font-family:Merriweather;font-style:italic;font-display:swap;font-weight:700;src:local("Merriweather Bold italic"),local("Merriweather-Bolditalic"),url(/amaNekublog/static/merriweather-latin-700italic-1ef5edaaa20ae53ea50399884c5e48c6.woff2) format("woff2"),url(/amaNekublog/static/merriweather-latin-700italic-534bc9e7ce93c73d73426e46acd78092.woff) format("woff")}@font-face{font-family:Merriweather;font-style:normal;font-display:swap;font-weight:900;src:local("Merriweather Black "),local("Merriweather-Black"),url(/amaNekublog/static/merriweather-latin-900-7528fb70e8a4a82c7305e72ff43ac25f.woff2) format("woff2"),url(/amaNekublog/static/merriweather-latin-900-3799b6e2f5ed3fcccf9d7a708d7419fa.woff) format("woff")}@font-face{font-family:Merriweather;font-style:italic;font-display:swap;font-weight:900;src:local("Merriweather Black italic"),local("Merriweather-Blackitalic"),url(/amaNekublog/static/merriweather-latin-900italic-e1b4d2aaa78e12ad84aaf8a56321e4c2.woff2) format("woff2"),url(/amaNekublog/static/merriweather-latin-900italic-2ae22f731b3424e8dbb4b37f7ca6e708.woff) format("woff")}code[class*=language-],pre[class*=language-]{color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#9a6e3a;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 2.24.50"/><link rel="preconnect" href="https://www.google-analytics.com"/><link rel="dns-prefetch" href="https://www.google-analytics.com"/><link rel="alternate" type="application/rss+xml" href="/amaNekublog/rss.xml"/><link rel="icon" href="/amaNekublog/favicon-32x32.png?v=573d7f2710f242734684844a03a44983" type="image/png"/><link rel="manifest" href="/amaNekublog/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/amaNekublog/icons/icon-48x48.png?v=573d7f2710f242734684844a03a44983"/><link rel="apple-touch-icon" sizes="72x72" href="/amaNekublog/icons/icon-72x72.png?v=573d7f2710f242734684844a03a44983"/><link rel="apple-touch-icon" sizes="96x96" href="/amaNekublog/icons/icon-96x96.png?v=573d7f2710f242734684844a03a44983"/><link rel="apple-touch-icon" sizes="144x144" href="/amaNekublog/icons/icon-144x144.png?v=573d7f2710f242734684844a03a44983"/><link rel="apple-touch-icon" sizes="192x192" href="/amaNekublog/icons/icon-192x192.png?v=573d7f2710f242734684844a03a44983"/><link rel="apple-touch-icon" sizes="256x256" href="/amaNekublog/icons/icon-256x256.png?v=573d7f2710f242734684844a03a44983"/><link rel="apple-touch-icon" sizes="384x384" href="/amaNekublog/icons/icon-384x384.png?v=573d7f2710f242734684844a03a44983"/><link rel="apple-touch-icon" sizes="512x512" href="/amaNekublog/icons/icon-512x512.png?v=573d7f2710f242734684844a03a44983"/><title data-react-helmet="true">gatsby-starter-blogをベースにブログ内容を修正してデプロイする | amaNekublog</title><meta data-react-helmet="true" name="description" content="GatsbyJSのStarter-Blogからブログの内容やプロフィールを変える方法とGitHub Pagesにデプロイする方法を解説します。"/><meta data-react-helmet="true" property="og:title" content="gatsby-starter-blogをベースにブログ内容を修正してデプロイする"/><meta data-react-helmet="true" property="og:description" content="GatsbyJSのStarter-Blogからブログの内容やプロフィールを変える方法とGitHub Pagesにデプロイする方法を解説します。"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="nekumiyama"/><meta data-react-helmet="true" name="twitter:title" content="gatsby-starter-blogをベースにブログ内容を修正してデプロイする"/><meta data-react-helmet="true" name="twitter:description" content="GatsbyJSのStarter-Blogからブログの内容やプロフィールを変える方法とGitHub Pagesにデプロイする方法を解説します。"/><link href="//fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400|Noto+Sans+JP:400" rel="stylesheet" type="text/css"/><link as="script" rel="preload" href="/amaNekublog/webpack-runtime-79ad91aac6dd5fc8284c.js"/><link as="script" rel="preload" href="/amaNekublog/framework-63ec46a3540d83159f28.js"/><link as="script" rel="preload" href="/amaNekublog/styles-f7a64dad1c13bebc31fd.js"/><link as="script" rel="preload" href="/amaNekublog/app-4198e3c8cf690d6318ae.js"/><link as="script" rel="preload" href="/amaNekublog/commons-4c8d581895b75ede835f.js"/><link as="script" rel="preload" href="/amaNekublog/cd7d5f864fc9e15ed8adef086269b0aeff617554-9fc98bd6e2051fd49ea7.js"/><link as="script" rel="preload" href="/amaNekublog/component---src-templates-blog-post-js-71a96fc6874158ff61e9.js"/><link as="fetch" rel="preload" href="/amaNekublog/page-data\20200906_first-deploy\page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/amaNekublog/page-data/sq/d/1317458740.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/amaNekublog/page-data/sq/d/2841359383.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/amaNekublog/page-data\app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div style="margin-left:auto;margin-right:auto;max-width:40.8rem;padding:2.55rem 1.275rem"><header><h3 style="font-family:Montserrat, sans-serif;margin-top:0"><a style="box-shadow:none;color:inherit" href="/amaNekublog/">amaNekublog</a></h3></header><main><article><header><h1 style="margin-top:1.7rem;margin-bottom:0">gatsby-starter-blogをベースにブログ内容を修正してデプロイする</h1><p style="font-size:0.8621rem;line-height:1.7rem;display:block;margin-bottom:1.7rem">2020.09.06</p></header><section><p>今回は、GatsbyJSでブログを始めようと決めてから、デプロイするまでに行ったことを解説します。GatsbyJSのインストールとgatsby-starter-blogを使ったGatsbyJSプロジェクトの作成までは済んでいる前提です。変更内容は、ブログの内容やプロフィールが主になります。</p>
+<h3>1.現状の理解</h3>
+<hr>
+<h3>1-1.イメージ</h3>
+<p>gatsby-starter-blogそのままだと、こんな状態です。これから自分用の内容に置き換えていきます。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/amaNekublog/static/e5a1ca44f509938f846f42dd595b4677/ce6cc/gatsby-starter-blog-image.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 58.78378378378378%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsSAAALEgHS3X78AAABcElEQVQoz6VTPW/CMBTs/xcKG4IBMTCwMrAhsdOxVQfUVqoExflwvuzEceIkV9tV2tACasWTTs+y/Z7u7tl30NG2rUmo6xp5nkNKiSzLUJal3WOMQSmFoijsWVVVtqZDP+76DU3hbDbDYrHAaDTCYDDAer2G4ziYTqeYTCYYj8fYbDb2ftM01xumaYrh0MF8PsdyucR+v0eSJJYd14wNQ6PAMO/qutounzQ0BdvtvcYWq9UKjZb7l+izPGmoqhKH1531iXMO4no4EA8ejRBECXydwzgB00qMmjiO7N2LDKVm+PT4gFR7GYUhQpbDZ9KC8hIBl2BCD0R7Z4ZlYHz81fAn7f/GRcll3eA5EHihEju/AOHqRg/1NF0/AE0Y0kwg5TmEEHZY/Sxl8bU+K/n7YSsEHkEYeBouqOfieDzCJQTkSOz6XcNzP/cppdefjWpaUFEj1PAzhVQ2t0mutIdvPgNJCrisRCyMh+3JNzuHfo8PUGydZEos4mYAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="gatsby-starter-blog-image"
+        title="gatsby-starter-blog-image"
+        src="/amaNekublog/static/e5a1ca44f509938f846f42dd595b4677/fcda8/gatsby-starter-blog-image.png"
+        srcset="/amaNekublog/static/e5a1ca44f509938f846f42dd595b4677/12f09/gatsby-starter-blog-image.png 148w,
+/amaNekublog/static/e5a1ca44f509938f846f42dd595b4677/e4a3f/gatsby-starter-blog-image.png 295w,
+/amaNekublog/static/e5a1ca44f509938f846f42dd595b4677/fcda8/gatsby-starter-blog-image.png 590w,
+/amaNekublog/static/e5a1ca44f509938f846f42dd595b4677/efc66/gatsby-starter-blog-image.png 885w,
+/amaNekublog/static/e5a1ca44f509938f846f42dd595b4677/c83ae/gatsby-starter-blog-image.png 1180w,
+/amaNekublog/static/e5a1ca44f509938f846f42dd595b4677/ce6cc/gatsby-starter-blog-image.png 1551w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p>※デモサイトは<a href="https://gatsby-starter-blog-demo.netlify.app/">こちら</a></p>
+<h3>1-2.フォルダ構成を知る</h3>
+<p>変更するにはまず、どこに何があるのかを知る必要があります。<br>
+※❔が付いている部分はまだ詳しく理解できていないです>&#x3C;</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">root
+|-- /content          #記事用
+    |-- /assets         #記事共通で使う素材
+    |-- /blog           #記事本体。記事個別で使う素材もここ
+|-- /node_modules     #使用nodeモジュール
+|-- /public           #ビルドでできる。公開用
+|-- /src              #ソースコード
+    |-- /components     #任意。ページ共通で使うコンポーネント。
+    |-- /pages          #必須。ここにあるファイルが自動的にページになる。フォルダ名がそのページへのパスになる。
+    |-- /templates      #❔ブログポストのテンプレを配置。GraphqlでContentsから動的に記事を作成(注入？)できる。
+    |-- /utils          #ユーティリティ
+|-- /static           #処理せずそのまま配置したいファイル類。favicon.icoとか
+|-- gatsby-config.js  #設定のメインファイル。サイトのメタデータや使用するプラグイン
+|-- gatsby-node.js    #❔nodeAPI（記事を生成する側のファイル）に対して影響を与える設定類
+|-- gatsby-ssr.js     #❔ServerSideRenderingAPIに対して影響を与える設定類
+|-- gatsby-browser.js #❔browserAPI（ブラウザで表示する側のファイル）に対して影響を与える設定類</code></pre></div>
+<p>詳細：</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">content                 #記事用
+|-- /assets               #記事共通で使う素材
+    |-- gatby-icon.png      #サイトのfavicon用
+    |-- profile-pic.png     #プロフィール画像
+|-- /blog                 #記事本体。記事個別で使う素材もここ
+    |-- /hello-wolrd
+        |-- index.md
+        |-- salty_egg.jpg
+    |-- ...</code></pre></div>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">src                      #ソースコード
+|-- /components            #ページ共通で使うコンポーネント。
+    |-- bio.js               #biography=自己紹介。
+    |-- layout.js            #❔サイト全体のレイアウト。header、main、footer。
+    |-- seo.js               #❔SEOに必要なもの（そもそもSEOをよくわかってない）
+|-- /pages                 #必須。ここにあるファイルが自動的にページになる。フォルダ名がそのページへのパスになる。
+    |-- 404.js               #404のページ
+    |-- index.js             #ホームページ
+    |-- using-typescript.tsx #❔typescriptを使うために必要なファイルらしい。使わないなら消していいらしい
+|-- /templates             #ブログポストのテンプレを配置。GraphqlでContentsから動的に記事を作成(注入？)できる。
+    |-- blog-post.js         #記事ページのベースとなるページ（多分）
+|-- /utils                 #ユーティリティ
+    |-- typography.js        #❔typographyで使う設定</code></pre></div>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">statics
+|-- favicon.ico   #ブラウザのタブ部分に出てくる画像
+|-- robots.txt    #❔robots.txt（って何やろ...？）</code></pre></div>
+<p>参考：<br>
+<a href="https://www.gatsbyjs.com/docs/gatsby-project-structure/">Gatsby Project Structure</a><br>
+<a href="https://suzukalight.com/2019-07-01-file-structure/">Gatsby のファイル構成 | suzukalight.com</a></p>
+<h2>2.変更箇所を列挙する</h2>
+<hr>
+<ul>
+<li>サイトのメタデータ（作成者名とか）</li>
+<li>プロフィール画像</li>
+<li>favicon</li>
+<li>記事</li>
+<li>日付をYYYY.MM.DD形式に</li>
+<li>コピーライト</li>
+<li>プロフィールの細かいところ</li>
+</ul>
+<p>これだけ！</p>
+<h2>3.必要な変更箇所を変更する</h2>
+<hr>
+<h3>3-1.サイトのメタデータ（作成者名とか）</h3>
+<p>/gatsby-config.jsを変更します。</p>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  siteMetadata<span class="token operator">:</span> <span class="token punctuation">{</span>
+    title<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">amaNekublog</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+    author<span class="token operator">:</span> <span class="token punctuation">{</span>
+      name<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">ネク</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+      summary<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">個人ゲーム開発を夢見るITエンジニア。ドット絵・イラスト・デザインにも挑戦したいと思っている。</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    description<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">ゲーム・プログラミング・ドット絵・イラスト・デザインを中心にお役立ち情報から個人的な考えまで”あまねく”発信します。</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+    siteUrl<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">https://nekumiyama.com/</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+    social<span class="token operator">:</span> <span class="token punctuation">{</span>
+      twitter<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">nekumiyama</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre></div>
+<h3>3-2.プロフィール画像</h3>
+<ul>
+<li>/contents/assets内のprofile-pic.jpgを変更します。</li>
+<li>※ファイル名を変えたい場合は/src/components/bio.jsの以下を変更しましょう。</li>
+</ul>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx">avatar<span class="token operator">:</span> <span class="token function">file</span><span class="token punctuation">(</span>absolutePath<span class="token operator">:</span> <span class="token punctuation">{</span> regex<span class="token operator">:</span> <span class="token string">"/avater.png/"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span></code></pre></div>
+<h3>3-3.favicon</h3>
+<ul>
+<li>今回はプロフィール画像を再利用します。</li>
+<li>/gatsby-config.jsを編集します。</li>
+</ul>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token punctuation">{</span>
+  resolve<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">gatsby-plugin-manifest</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+  options<span class="token operator">:</span> <span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">amaNekublog | ネクのブログ</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>  <span class="token comment">//☆ついでに変更</span>
+    short_name<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">amaNekublog</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>          <span class="token comment">//☆ついでに変更</span>
+    start_url<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">/</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+    background_color<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">#ffffff</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+    theme_color<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">#663399</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+    display<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">minimal-ui</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+    icon<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">content/assets/avater.png</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>   <span class="token comment">//★ここ</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre></div>
+<p>※/static内のfavicon.icoは変更しなくてよい（引っ掛かるところだった😅）</p>
+<h3>3-4.記事</h3>
+<ul>
+<li>/blog内の/hello-worldフォルダ以外を削除します。</li>
+<li>/hello-worldをリネームします。⇒先頭に公開日をつけて日付順に並ばせる狙い</li>
+<li>/hello-worldの記事内容を更新します。</li>
+</ul>
+<h3>3-5.日付をYYYY.MM.DD形式に</h3>
+<ul>
+<li>/src/pages/index.jsを変更します。</li>
+</ul>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">export</span> <span class="token keyword">const</span> pageQuery <span class="token operator">=</span> graphql<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "YYYY.MM.DD")  //★ここ
+            title
+            description
+          }
+        }
+      }
+    }
+  }
+</span><span class="token template-punctuation string">`</span></span></code></pre></div>
+<ul>
+<li>/src/templates/blog-post.jsを変更します。</li>
+</ul>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">export</span> <span class="token keyword">const</span> pageQuery <span class="token operator">=</span> graphql<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+  query BlogPostBySlug($slug: String!) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      id
+      excerpt(pruneLength: 160)
+      html
+      frontmatter {
+        title
+        date(formatString: "YYYY.MM.DD")  //★ここ
+        description
+      }
+    }
+  }
+</span><span class="token template-punctuation string">`</span></span></code></pre></div>
+<h3>3-6.コピーライト</h3>
+<p>/src/components/layout.jsを変更します。</p>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>footer</span><span class="token punctuation">></span></span><span class="token plain-text">
+    Â© </span><span class="token punctuation">{</span><span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getFullYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token plain-text">, Neku Miyama
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>footer</span><span class="token punctuation">></span></span></code></pre></div>
+<p>参考：（そもそもコピーライトの書き方がわからなかったため参考にしました）<br>
+<a href="https://deco8.net/web/footer-copyright-html-tag/">【保存版】もう迷わない！フッターに表記するコピーライトの正しい書き方とタグ【HTML5・PHP・JavaScript】</a></p>
+<h3>3-7.プロフィールの細かいところ</h3>
+<ul>
+<li>「Written by ネク」→単純に「ネク」にして、改行したい</li>
+<li>「You should follow him on Twitter」→改行して「Twitter」にしたい</li>
+</ul>
+<p>/src/components/bio.jsを変更します。</p>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token plain-text">
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>strong</span><span class="token punctuation">></span></span><span class="token punctuation">{</span>author<span class="token punctuation">.</span>name<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>strong</span><span class="token punctuation">></span></span><span class="token plain-text">
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token punctuation">{</span>author<span class="token punctuation">.</span>summary<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><span class="token plain-text">
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">https://twitter.com/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>social<span class="token punctuation">.</span>twitter<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span></span><span class="token punctuation">></span></span><span class="token plain-text">Twitter</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token plain-text">
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><span class="token plain-text">
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></code></pre></div>
+<h3>3-8.完成！</h3>
+<p>和文のせいか見た目がよくないですが、、、ブログ内容は自分のものになりました！</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/amaNekublog/static/c68e42c84d22d6d9568eebfb136edd7a/19a15/amaNekublog-image1.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 62.16216216216216%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsSAAALEgHS3X78AAABYElEQVQoz6VTy27CMBDMDyMVJCTCGXGCb+LcXjj10ENFVSE1iUJeduL4lanXJVFAIJC60mhtxzsezzpB13WgoCyEAOccSilEUYSqqpAkCaSUyLIMcRyDMQatNay1Q904AmOMH+x2O7xMp9hsNlitVpjNZlgsFpjP59hutwjDEMvlEuv1GpPJBIfDwdcR8VhU0E+0khBOHanM8xxt23o1pJiUEuq69tjv9/7bWGGfA3sevEcxXo9HWKWHkx8F7fE439Ir7Ak/fmK8fX5BNrVXRZ6VZYksz/ycQKopM8bPmXl/W3ergdCfNDL2O2XIuYBxxmtt/gocEVlBzSLQWtM0Hn0MV+4HRGptB2k66Me3vSC6aMqt1t8quIfrPYNCoSxKYZDVGnGlcHKZ1q5VPIqBsHZ+JOkJvHHPRUhw4fwy/yCk10/GUzNa0bhGCHR3/oanCImsKAqPNE1RuCdz7c8z8QsAbJ7gL0k9ywAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="amaNekublog-image1"
+        title="amaNekublog-image1"
+        src="/amaNekublog/static/c68e42c84d22d6d9568eebfb136edd7a/fcda8/amaNekublog-image1.png"
+        srcset="/amaNekublog/static/c68e42c84d22d6d9568eebfb136edd7a/12f09/amaNekublog-image1.png 148w,
+/amaNekublog/static/c68e42c84d22d6d9568eebfb136edd7a/e4a3f/amaNekublog-image1.png 295w,
+/amaNekublog/static/c68e42c84d22d6d9568eebfb136edd7a/fcda8/amaNekublog-image1.png 590w,
+/amaNekublog/static/c68e42c84d22d6d9568eebfb136edd7a/efc66/amaNekublog-image1.png 885w,
+/amaNekublog/static/c68e42c84d22d6d9568eebfb136edd7a/c83ae/amaNekublog-image1.png 1180w,
+/amaNekublog/static/c68e42c84d22d6d9568eebfb136edd7a/19a15/amaNekublog-image1.png 1229w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/amaNekublog/static/c6de6df6751d4122a8fc4877be000c1d/20f89/amaNekublog-image2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 66.21621621621621%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsSAAALEgHS3X78AAABGUlEQVQ4y5WS22qFMBBF/f/P8Av8A8EnHwVBqiinIhV8sVrjJdG4mwmkPdrjpRuGQJLZrLlY67qC9FnXiOM3FTGSJMHj8Y5XMv/NuZdlHpqmQZqmyLIMeZ7r6LoOfd9jmiZwziGlPDXbGJZlCdd1dVRVhTAMYds2HMeB53nwfV/TG8NLQqEI2rbVJKRlWSCE0Oc8zz9xu2RKpgQqy5xHMoT72BgWRYEgCHQfoyjCh2rBPvlK9Md6xjd0VCYF3dPdnfhDSNOkSQ/DAMYYJi7Q1iX4+HVa5mHJXK0GrQmZ9cqUVkVqSom70iX/EjJwwY+HcINSE5oEImKsV72TLz/eGcrGkPaPTGkoV8t7amiSqH/jOOp9/C/Vs74BVTP7X0fBhu8AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="amaNekublog-image2"
+        title="amaNekublog-image2"
+        src="/amaNekublog/static/c6de6df6751d4122a8fc4877be000c1d/fcda8/amaNekublog-image2.png"
+        srcset="/amaNekublog/static/c6de6df6751d4122a8fc4877be000c1d/12f09/amaNekublog-image2.png 148w,
+/amaNekublog/static/c6de6df6751d4122a8fc4877be000c1d/e4a3f/amaNekublog-image2.png 295w,
+/amaNekublog/static/c6de6df6751d4122a8fc4877be000c1d/fcda8/amaNekublog-image2.png 590w,
+/amaNekublog/static/c6de6df6751d4122a8fc4877be000c1d/efc66/amaNekublog-image2.png 885w,
+/amaNekublog/static/c6de6df6751d4122a8fc4877be000c1d/c83ae/amaNekublog-image2.png 1180w,
+/amaNekublog/static/c6de6df6751d4122a8fc4877be000c1d/20f89/amaNekublog-image2.png 1213w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span></p>
+<h2>4.デプロイする</h2>
+<hr>
+<p>以下のGatsbyJSの公式ページにGitHub Pagesへのデプロイ方法が説明されているので、これを参考にGitHub Pagesにデプロイしてみます。（なんと無料！🤑）</p>
+<p><a href="https://www.gatsbyjs.com/docs/how-gatsby-works-with-github-pages/">How Gatsby Works with GitHub Pages</a></p>
+<h3>手順</h3>
+<ol>
+<li>ローカルで<code class="language-text">git commit</code>しておく</li>
+<li>GitHubにリポジトリを作成</li>
+<li><code class="language-text">git merge --allow-unrelated-histories origin/master</code> をして強制的に？マージ</li>
+<li><code class="language-text">git push -u origin master</code> でGitHubにpush</li>
+<li>参考サイトの手順でデプロイ用の設定を実施</li>
+<li><code class="language-text">npm run deploy</code> すればデプロイ完了🚀</li>
+</ol>
+<p>※<code class="language-text">npm run deploy</code>  で「fatal: A branch named ‘gh-pages’ already exists.」と出たら、node_modules/.cache/gh-pagesを削除する。</p>
+<p>以上です！　次回はブログの「テキスト装飾」を変える方法を解説します！</p></section><hr style="margin-bottom:1.7rem"/><footer><div style="display:flex;margin-bottom:4.25rem"><div class=" gatsby-image-wrapper" style="position:relative;overflow:hidden;display:inline-block;width:50px;height:50px;margin-right:0.85rem;margin-bottom:0;min-width:50px;border-radius:100%"><img aria-hidden="true" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAATsAAAE7AGKbv1yAAAEvklEQVQ4y1VUDU+TVxQuJEbjP3BzU+mCVhTU6HRUp4DzA0URigITypcirmO0s4A1Oo0TRoMfqDh1mXNKVyClFCrKQN2YEhNnNuOMMxI/59xEaMHKV9/73mfnvrZkvskJl3Nvn3ue5zz3qJrQrxJfo+RRteBVqFjrLPvGOAafr2/iffZm9D+kv1IgHtH/dQ1DL1Lzqo6PFWdr+/4KvYBhBaM5gKVyyX0hAJR1B5B4CfLdq5S4RNGCAdBBJcS6HRxXlD35XieQrAp8BBryGox5VE8CYO1g5Se7/oCpxgbDyW+ket8z6Rx8MlXGAyG78VIy221S0ekzOHD9Ki5gyBoEdTGvSkUHFJptBGZ78QizE7awCVHpbNlmE3dJPbwZL4Ng3CV7OQHwLOt+PmFmCgtfnM0O3rhG1fLKAOXQIHLiZaKRtqeCTZyrl2NzPoeL9fJzeMWbZO8oZQIVwdswwjd+WYl35+fR2W2sBT6cx7BOAfv6z9/GuPHqbuNINxZ9bGRh0ZnY5W6gHzE4/b2jYMFolHrRCj+O3rrG1R+kYcbyTezU4zuCetfR2zfGqRyD3euFyMX2Gmny+6lcZynnbvSBGgWq8P+VKWuRa6I9cgQ2H67mk+alofDUaekXwmgY7klXOf09duoWCqqPSm9F6njy9jLSaQCCht37mCryvEG5rv8pydGDi8Qg90AVJs5JQ97BI5JwBZ2tJ8t4H/4ICVW/d8pz1xm4emE2LA21yPjqMDTaNTj1+PaodZzD3YhOzkZsrhn7LrVAHb0R05fm832XW5noAfXipopu9YvD5+HjKz8p5eFxnyE8ZjM0MZnYf71ToUiXBii/xImuW1iQYoBaq0fE6lLMS8zntp4HsiiKGvhApbwA0kTYweJ0cLU2C9PjS7BEb4LL/xziIN2MRuahSgfRhiFs2FmGacuMmKLNQ5b1ECd5ZLFHWA+Fdx4FxJddsodnVx6hCvMxdWkhlhdYcOzOr1T9IAH78f3fd5FUshdT47bSvgFrTF+Qzk/IXj7WihGBoVCuu0jPiWhJpBUX1JOKdyE8zoBpHxVi5jI9tlQfh+nsGSzQ5SM8tkCpLibLSBULZsOcGEgCg7AcosJU4TnxpJzMw3e3nePRqUXQrCjCzAQzIuK3Qb1oE8K0OZQzKrnpK02Ys/ZTmOtsvHbgH6Gz1A5ZVJhB0+LpWAK710S0K2psLHl1JqZ8uIlHJhRjRrwRkQnbMCvJQrEDkWtEzkQ5M6bEFPC1SVko3lnG7L5nwpf3z/57f7zyWty8P7mVbthRfYKtiEuRNfGFiErcziNWmfHekq2YvECPSfP1VGk+RC4qsZRrVpmwOGYdNxTvllzU/VYMbVDASHDlQTfzfqswuNFew96ZncLCtLnQxGZTE/bwkrofeGm9nWeW7+cRS3N42MJcvD1rPUvds1fqeD3iDgUGTCgN1t7g9BEDtlJ0q6TWBn1ZuVRxpZ208TPSRybRKRg7cL1DyrFapaLvvhUNIQe8BhOfc+RFcMB6Q4JJ0lPXBqlLPKWfKcQFwlYiLtBa5MQeVXPfDd+G4O/IyyFvjO1Gf+8o/fKOi+McQ93pZId6ssJNigfCtGJNlzsahrszrJ0/jQ9KFmQpsP4DjDUljO36PmoAAAAASUVORK5CYII=" alt="ネク" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms;border-radius:50%"/><noscript><picture><source srcset="/amaNekublog/static/573d7f2710f242734684844a03a44983/8ba1e/avater.png 1x,
+/amaNekublog/static/573d7f2710f242734684844a03a44983/f937a/avater.png 1.5x,
+/amaNekublog/static/573d7f2710f242734684844a03a44983/71eb7/avater.png 2x" /><img loading="lazy" width="50" height="50" srcset="/amaNekublog/static/573d7f2710f242734684844a03a44983/8ba1e/avater.png 1x,
+/amaNekublog/static/573d7f2710f242734684844a03a44983/f937a/avater.png 1.5x,
+/amaNekublog/static/573d7f2710f242734684844a03a44983/71eb7/avater.png 2x" src="/amaNekublog/static/573d7f2710f242734684844a03a44983/8ba1e/avater.png" alt="ネク" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div><p><strong>ネク</strong><p>個人ゲーム開発を夢見るITエンジニア。ドット絵・イラスト・デザインにも挑戦したいと思っている。最近一児の新米パパになり子育てに奮闘中。<br/><a href="https://twitter.com/nekumiyama">Twitter</a></p></p></div></footer></article><nav><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/amaNekublog/20200904_hello-world/">← <!-- -->ブログ、始めました。</a></li><li></li></ul></nav></main><footer>© <!-- -->2020<!-- -->, Neku Miyama</footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-177280250-1', 'auto', {});
+      
+      
+      
+      
+      
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/20200906_first-deploy/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-da901081db5f1889332d.js"],"app":["/app-4198e3c8cf690d6318ae.js"],"component---src-pages-404-js":["/component---src-pages-404-js-f7a3a65ed08052a95b44.js"],"component---src-pages-index-js":["/component---src-pages-index-js-ea5def0d3637e0f57ce1.js"],"component---src-pages-using-typescript-tsx":["/component---src-pages-using-typescript-tsx-52019674864e23d7221f.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-71a96fc6874158ff61e9.js"]};/*]]>*/</script><script src="/amaNekublog/polyfill-da901081db5f1889332d.js" nomodule=""></script><script src="/amaNekublog/component---src-templates-blog-post-js-71a96fc6874158ff61e9.js" async=""></script><script src="/amaNekublog/cd7d5f864fc9e15ed8adef086269b0aeff617554-9fc98bd6e2051fd49ea7.js" async=""></script><script src="/amaNekublog/commons-4c8d581895b75ede835f.js" async=""></script><script src="/amaNekublog/app-4198e3c8cf690d6318ae.js" async=""></script><script src="/amaNekublog/styles-f7a64dad1c13bebc31fd.js" async=""></script><script src="/amaNekublog/framework-63ec46a3540d83159f28.js" async=""></script><script src="/amaNekublog/webpack-runtime-79ad91aac6dd5fc8284c.js" async=""></script></body></html>
