@@ -40,7 +40,11 @@ const Bio = () => {
     <div
       style={{
         display: `flex`,
+        padding: rhythm(0.7),
         marginBottom: rhythm(2.5),
+        border: `solid`,
+        borderColor: `gray`,
+        borderRadius: `10%`,
       }}
     >
       <Image
@@ -56,13 +60,11 @@ const Bio = () => {
           borderRadius: `50%`,
         }}
       />
-      <p>
-        <strong>{author.name}</strong>
-        <p>
-          {author.summary}<br />
-          <a href={`https://twitter.com/${social.twitter}`}>Twitter</a>
-        </p>
-      </p>
+      <div>
+        <strong>{author.name}</strong><br />
+        {author.summary}<br />
+        <a href={`https://twitter.com/${social.twitter}`}>Twitter</a>
+      </div>
     </div>
   )
 }
