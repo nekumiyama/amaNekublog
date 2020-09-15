@@ -10,6 +10,38 @@ module.exports = {
     social: {
       twitter: `nekumiyama`,
     },
+    categories: [
+      {
+        name: `Develop`,
+        color: `#FFB6C1`,
+        icon: `💻`,
+      },
+      {
+        name: `Create`,
+        color: `#87CEFA`,
+        icon: `🎨`,
+      },
+      {
+        name: `Learn`,
+        color: `#98FB98`,
+        icon: `📔`,
+      },
+      {
+        name: `Try`,
+        color: `#F0E68C`,
+        icon: `🧪`,
+      },
+      {
+        name: `Enjoy`,
+        color: `#DDA0DD`,
+        icon: `😍`,
+      },
+      {
+        name: `Think`,
+        color: `#EE82EE`,
+        icon: `💡`,
+      },
+    ]
   },
   plugins: [
     {

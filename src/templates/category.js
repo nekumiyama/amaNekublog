@@ -6,13 +6,20 @@ import SEO from "../components/seo"
 import Postcategory from "../components/postcategory"
 import { rhythm } from "../utils/typography"
 
-const BlogIndex = ({ data, location }) => {
+const CategoryTemplate = ({ data, pageContext, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
+  const { category } = pageContext
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="Home" />
+      <SEO title={`${category} | amaNekublog`} />
+      <h2>{category}</h2>
+      <hr
+        style={{
+          marginBottom: rhythm(1),
+        }}
+      />
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
@@ -46,16 +53,19 @@ const BlogIndex = ({ data, location }) => {
   )
 }
 
-export default BlogIndex
+export default CategoryTemplate
 
 export const pageQuery = graphql`
-  query {
+  query($category: String) {
     site {
       siteMetadata {
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { category: { in: [$category] } } }
+    ) {
       edges {
         node {
           excerpt

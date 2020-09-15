@@ -2,6 +2,7 @@
 title: gatsby-starter-blogをベースにブログ内容を修正してデプロイする
 date: "2020-09-06T00:00:00.000Z"
 description: "GatsbyJSのStarter-Blogからブログの内容やプロフィールを変える方法とGitHub Pagesにデプロイする方法を解説します。"
+category: "Develop"
 ---
 
 今回は、GatsbyJSでブログを始めようと決めてから、デプロイするまでに行ったことを解説します。GatsbyJSのインストールとgatsby-starter-blogを使ったGatsbyJSプロジェクトの作成までは済んでいる前提です。変更内容は、ブログの内容やプロフィールが主になります。

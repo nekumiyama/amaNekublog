@@ -2,6 +2,7 @@
 title: Typography.jsを使ってGatsby製ブログのテキスト周りをアレンジする
 date: "2020-09-08T00:00:00.000Z"
 description: "GatsbyJSでTypography.jsを使って文字周りのデザインを自分好みにする方法を解説します。"
+category: "Develop"
 ---
 
 前回はgatsby-starter-blogを使ってブログを作り、GitHub Pagesにデプロイしました。しかし、初期状態だと文字バランスが悪く、あまり私の好みじゃなかったです。そこで今回は、gatsby-starter-blogのベースからテキストの装飾をアレンジする方法を紹介します。
