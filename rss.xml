@@ -1,4 +1,117 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[amaNekublog]]></title><description><![CDATA[ゲーム・プログラミング・ドット絵・イラスト・デザインを中心にお役立ち情報から個人的な考えまで”あまねく”発信します。]]></description><link>https://nekumiyama.github.io/amaNekublog</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 08 Sep 2020 11:14:06 GMT</lastBuildDate><item><title><![CDATA[Typography.jsを使ってGatsby製ブログのテキスト周りをアレンジする]]></title><description><![CDATA[前回はgatsby-starter-blogを使ってブログを作り、GitHub Pagesにデプロイしました。しかし、初期状態だと文字バランスが悪く、あまり私の好みじゃなかったです。そこで今回は、gatsby-starter-blog…]]></description><link>https://nekumiyama.github.io/amaNekublog/20200906_typography/</link><guid isPermaLink="false">https://nekumiyama.github.io/amaNekublog/20200906_typography/</guid><pubDate>Tue, 08 Sep 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;前回はgatsby-starter-blogを使ってブログを作り、GitHub Pagesにデプロイしました。しかし、初期状態だと文字バランスが悪く、あまり私の好みじゃなかったです。そこで今回は、gatsby-starter-blogのベースからテキストの装飾をアレンジする方法を紹介します。&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[amaNekublog]]></title><description><![CDATA[ゲーム・プログラミング・ドット絵・イラスト・デザインを中心にお役立ち情報から個人的な考えまで”あまねく”発信します。]]></description><link>https://nekumiyama.github.io/amaNekublog</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 15 Sep 2020 11:22:37 GMT</lastBuildDate><item><title><![CDATA[【GatsbyJS】カテゴリ別の記事一覧ページを作る①]]></title><description><![CDATA[今回はカテゴリ別で記事一覧を表示するページを作っていきます。GatsbyJSの公式サイトに手順が載っていたため、これを参考に進めます。 ＜参考＞ https://www.gatsbyjs.com/docs/adding-tags-and-categories-to-blog…]]></description><link>https://nekumiyama.github.io/amaNekublog/20200915_category1/</link><guid isPermaLink="false">https://nekumiyama.github.io/amaNekublog/20200915_category1/</guid><pubDate>Tue, 15 Sep 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;今回はカテゴリ別で記事一覧を表示するページを作っていきます。GatsbyJSの公式サイトに手順が載っていたため、これを参考に進めます。&lt;/p&gt;
+&lt;p&gt;＜参考＞&lt;br&gt;
+&lt;a href=&quot;https://www.gatsbyjs.com/docs/adding-tags-and-categories-to-blog-posts/&quot;&gt;https://www.gatsbyjs.com/docs/adding-tags-and-categories-to-blog-posts/&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;1. 手順の把握&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;参考サイトから不要な手順を除くと、必要な手順は以下の４つです。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;markdownファイルのfrontmatterに「カテゴリ」を追加する&lt;/li&gt;
+&lt;li&gt;クエリを記述して、投稿のすべてのカテゴリを取得する&lt;/li&gt;
+&lt;li&gt;カテゴリページテンプレートを作成する（/{category}に）&lt;/li&gt;
+&lt;li&gt;そのテンプレートを使用してページをレンダリングするようにgatsby-node.jsを変更する&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;今回は手順2. までを解説します。&lt;/p&gt;
+&lt;h2&gt;2. 実装&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h3&gt;2-1. markdownファイルのfrontmatterに「カテゴリ」を追加する&lt;/h3&gt;
+&lt;p&gt;「frontmatter」はmarkdownファイルの先頭の「—-」で囲まれているものです。ここにはタイトルや投稿日といった記事のメタデータを記述します。ここに記事の「カテゴリ」を追加します。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;
+title&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; ブログ、始めました。
+date&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;2020-09-04T00:00:00.000Z&quot;&lt;/span&gt;
+description&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;今日からブログを始めます。&quot;&lt;/span&gt;
+category&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Create&quot;&lt;/span&gt;                    &lt;span class=&quot;token comment&quot;&gt;//★追加&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;2-2. クエリを記述して、すべての記事のカテゴリを取得する&lt;/h3&gt;
+&lt;p&gt;記事のカテゴリに応じて、その記事をカテゴリ別の記事一覧ページに列挙するかどうかを分別したいです。そのためには2-1. で追加した「カテゴリ」を何らかの手段で取得する必要があります。Gatsbyでは&lt;a href=&quot;https://graphql.org/&quot;&gt;GraphQL&lt;/a&gt;が利用可能です。&lt;/p&gt;
+&lt;p&gt;GraphQLはAPI向けに作られたクエリ言語です。例えば、以下のようなクエリでブログ内の情報（メタデータや記事の内容など）を取り出すことができます。※私もまだまだ詳しくないので、詳細は&lt;a href=&quot;https://graphql.org/&quot;&gt;GraphQLの公式サイト&lt;/a&gt;を参照して下さい。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;graphql&quot;&gt;&lt;pre class=&quot;language-graphql&quot;&gt;&lt;code class=&quot;language-graphql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;query&lt;/span&gt; Query &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  site &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    siteMetadata &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      title
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;自分のサイトでのGraphQLでのクエリ結果を確かめるために、&lt;strong&gt;GraphiQL&lt;/strong&gt;が利用できます。&lt;code class=&quot;language-text&quot;&gt;gatsby develop&lt;/code&gt;で開発用サーバーを実行中に、&lt;code class=&quot;language-text&quot;&gt;http://localhost:8000/___graphql&lt;/code&gt; から利用できます。&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/amaNekublog/static/f9a6437ab6b533ca0ec8ddc9d87a3feb/71ee9/graphiql.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 73.64864864864865%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsSAAALEgHS3X78AAABv0lEQVQ4y52U3XLjIAyF/f7Pt1ftVTNjO8bYxvzbGJ+V6OLNTNLubDWjIAj5dAQizb4nhBCxaoP+PqAjH+WEcZogRolpWSieS8wuKZ4XVfbMywoTDG6/BgxvCmxN+TxP9H0PbQyFJ46csW1bWXt7f0dH48fthjsl4zUxjpT8jmEQZT6KEV3XFzHNbAK026C0w3EcqBZCwDzPkELAzgus1mVN0yhJnZoWrOuKRSkoGlk1e9NKC+23C8QK2WKMcM4iEkSOGtpGZPrqyAeM0hjvlEwZWBfgfUSIW/Gmmx32dFywCmR1irKzarclxP1zz77vsN5DUkUfA52vUNAEt4uBo7topKIMIT0B27aFogtJKeHR0pFofYUllcF6qsKTwgDnmUNAKwLylp+AXdfReZlrXkdOoFcNOzHUwDhXQOwMbewUcebzC6BGzvkJWCDUBT7+BfmqcO09UsxfAl8pNNZdoFrqVfLUWni90y9+BqzlVm+E8tj24+Wl/Aho//RghT0qNMb8P/AmVoQXCq211BLu9aX8q+TatI/Gb9lTA1dQNW70b4GSOly7WDZydnaO+Z3ySxH0lofh80+B53yu3wF/A5d3jKkmyysOAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;GraphiQL&quot;
+        title=&quot;GraphiQL&quot;
+        src=&quot;/amaNekublog/static/f9a6437ab6b533ca0ec8ddc9d87a3feb/fcda8/graphiql.png&quot;
+        srcset=&quot;/amaNekublog/static/f9a6437ab6b533ca0ec8ddc9d87a3feb/12f09/graphiql.png 148w,
+/amaNekublog/static/f9a6437ab6b533ca0ec8ddc9d87a3feb/e4a3f/graphiql.png 295w,
+/amaNekublog/static/f9a6437ab6b533ca0ec8ddc9d87a3feb/fcda8/graphiql.png 590w,
+/amaNekublog/static/f9a6437ab6b533ca0ec8ddc9d87a3feb/efc66/graphiql.png 885w,
+/amaNekublog/static/f9a6437ab6b533ca0ec8ddc9d87a3feb/71ee9/graphiql.png 1081w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;一番左が探索できるデータになります。ここから目的のデータを選択すると、真ん中にそれを取得するためのクエリが勝手に出力されます。もちろん自分でクエリを記述することもできます。一番右がクエリの結果です。&lt;/p&gt;
+&lt;p&gt;さて、すべての記事のカテゴリを取得するためのクエリですが、以下で取得できます。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;graphql&quot;&gt;&lt;pre class=&quot;language-graphql&quot;&gt;&lt;code class=&quot;language-graphql&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  allMarkdownRemark&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token attr-name&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token attr-name&quot;&gt;fields&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; frontmatter___date&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    edges &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      node &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        frontmatter &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          category
+          title
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;結果&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/amaNekublog/static/020dd36fc7acbc15745eefc9aeb9f915/236d7/queryCategory.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 51.35135135135135%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABK0lEQVQoz42SiXLDIAxE/f+f2SYTHxy2kRDxtRU09EjTNp7ZWQ2G5Ul2czqd0LYthr6HP59h1a21MGaAU2+7Ds45eO+L38vefBgMut6gISL4IJg5IaUFi6yQ6wq+bkjLBmbWyxx6N2OcCcTxTzVJBJxWXBxh0QAcwL4f2FRaIkmCHwPO/QijzhQRY0KUx2oywXHsWLddPUfU572WlDcK7ES4mAlkZ5DX4CgPVVr+DDpKXVUD58BwGhi0pXwoZlWqdEeYdKFEfQn5Fpg3akCvVK+tR9DWSefJE4P1okxLI4FnLuP4EfiQkLhQ8o2stldqvmv5GcK8Mc/vpXUInVdCpdIRlFnmi260HOL/gfl90A9HGkqZRg/l1goZV5cP0icIBZPxhYhFfv1dqt4AJGwI8H4vzP8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Query Category&quot;
+        title=&quot;Query Category&quot;
+        src=&quot;/amaNekublog/static/020dd36fc7acbc15745eefc9aeb9f915/fcda8/queryCategory.png&quot;
+        srcset=&quot;/amaNekublog/static/020dd36fc7acbc15745eefc9aeb9f915/12f09/queryCategory.png 148w,
+/amaNekublog/static/020dd36fc7acbc15745eefc9aeb9f915/e4a3f/queryCategory.png 295w,
+/amaNekublog/static/020dd36fc7acbc15745eefc9aeb9f915/fcda8/queryCategory.png 590w,
+/amaNekublog/static/020dd36fc7acbc15745eefc9aeb9f915/efc66/queryCategory.png 885w,
+/amaNekublog/static/020dd36fc7acbc15745eefc9aeb9f915/c83ae/queryCategory.png 1180w,
+/amaNekublog/static/020dd36fc7acbc15745eefc9aeb9f915/236d7/queryCategory.png 1486w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;全てのMarkdownファイルを日付順でソートし、そのカテゴリとタイトルが取得できました。&lt;/p&gt;
+&lt;p&gt;本日はここまでです。次回、続きを解説します。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Typography.jsを使ってGatsby製ブログのテキスト周りをアレンジする]]></title><description><![CDATA[前回はgatsby-starter-blogを使ってブログを作り、GitHub Pagesにデプロイしました。しかし、初期状態だと文字バランスが悪く、あまり私の好みじゃなかったです。そこで今回は、gatsby-starter-blog…]]></description><link>https://nekumiyama.github.io/amaNekublog/20200906_typography/</link><guid isPermaLink="false">https://nekumiyama.github.io/amaNekublog/20200906_typography/</guid><pubDate>Tue, 08 Sep 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;前回はgatsby-starter-blogを使ってブログを作り、GitHub Pagesにデプロイしました。しかし、初期状態だと文字バランスが悪く、あまり私の好みじゃなかったです。そこで今回は、gatsby-starter-blogのベースからテキストの装飾をアレンジする方法を紹介します。&lt;/p&gt;
 &lt;p&gt;ほんのちょっと見た目を変えるだけで見違えるので、よりオリジナル感を出したい方にお勧めです。&lt;/p&gt;
 &lt;h2&gt;1. プラグインを学ぶ&lt;/h2&gt;
 &lt;hr&gt;
@@ -606,7 +719,7 @@ Wordpress2016&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;s
 &lt;h3&gt;Develop💻&lt;/h3&gt;
 &lt;p&gt;ソフトウェア開発について、学んだことやハウツーを書きます。自分の開発したものの紹介も。&lt;/p&gt;
 &lt;h3&gt;Create🎨&lt;/h3&gt;
-&lt;p&gt;ゲーム制作、イラスト、ドット絵について書きます。学んだことやハウツーとか。作成物も載せます。&lt;/p&gt;
+&lt;p&gt;ゲーム制作、イラスト、ドット絵について書きます。学んだことやハウツーとか。作成物も載せます。ブログについてもここ。&lt;/p&gt;
 &lt;h3&gt;Learn📔&lt;/h3&gt;
 &lt;p&gt;デザインのこと、人の４大悩み(HARM：Health、Ambition、Relation、Money)への対応方法、教養など学んだことを書きます。お役立ち情報が発信できたらなと。&lt;/p&gt;
 &lt;h3&gt;Try🧪&lt;/h3&gt;
