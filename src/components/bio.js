@@ -41,7 +41,7 @@ const Bio = () => {
       style={{
         display: `flex`,
         padding: rhythm(0.7),
-        marginBottom: rhythm(2.5),
+        marginBottom: rhythm(2.0),
         border: `solid`,
         borderColor: `gray`,
         borderRadius: `10%`,

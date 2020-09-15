@@ -1,10 +1,10 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+import Postcategory from "../components/postcategory"
+import { rhythm } from "../utils/typography"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
@@ -19,22 +19,27 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       />
       <article>
         <header>
-          <h1
+          <small
             style={{
               marginTop: rhythm(1),
               marginBottom: 0,
+            }}
+          >
+            {post.frontmatter.date}
+          </small>
+          <h1
+            style={{
+              marginBottom: rhythm(0.5),
             }}
           >
             {post.frontmatter.title}
           </h1>
           <p
             style={{
-              ...scale(-1 / 5),
-              display: `block`,
-              marginBottom: rhythm(1),
+              marginBottom: rhythm(1.5),
             }}
           >
-            {post.frontmatter.date}
+            <Postcategory postcategory={post.frontmatter.category}/>
           </p>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -43,9 +48,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             marginBottom: rhythm(1),
           }}
         />
-        <footer>
-          <Bio />
-        </footer>
       </article>
 
       <nav>
@@ -95,6 +97,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "YYYY.MM.DD")
         description
+        category
       }
     }
   }
