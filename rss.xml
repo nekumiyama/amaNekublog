@@ -1,4 +1,271 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[amaNekublog]]></title><description><![CDATA[ゲーム・プログラミング・ドット絵・イラスト・デザインを中心にお役立ち情報から個人的な考えまで”あまねく”発信します。]]></description><link>https://nekumiyama.github.io/amaNekublog</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 15 Sep 2020 11:22:37 GMT</lastBuildDate><item><title><![CDATA[【GatsbyJS】カテゴリ別の記事一覧ページを作る①]]></title><description><![CDATA[今回はカテゴリ別で記事一覧を表示するページを作っていきます。GatsbyJSの公式サイトに手順が載っていたため、これを参考に進めます。 ＜参考＞ https://www.gatsbyjs.com/docs/adding-tags-and-categories-to-blog…]]></description><link>https://nekumiyama.github.io/amaNekublog/20200915_category1/</link><guid isPermaLink="false">https://nekumiyama.github.io/amaNekublog/20200915_category1/</guid><pubDate>Tue, 15 Sep 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;今回はカテゴリ別で記事一覧を表示するページを作っていきます。GatsbyJSの公式サイトに手順が載っていたため、これを参考に進めます。&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[amaNekublog]]></title><description><![CDATA[ゲーム・プログラミング・ドット絵・イラスト・デザインを中心にお役立ち情報から個人的な考えまで”あまねく”発信します。]]></description><link>https://nekumiyama.github.io/amaNekublog</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 17 Sep 2020 10:14:08 GMT</lastBuildDate><item><title><![CDATA[【GatsbyJS】カテゴリ別の記事一覧ページを作る②]]></title><description><![CDATA[前回に引き続き、GatsbyJSを使ったカテゴリ別記事一覧ページの作成について解説します。 今回は以下の手順の3,4を解説します。 markdownファイルのfrontmatter…]]></description><link>https://nekumiyama.github.io/amaNekublog/20200917_category2/</link><guid isPermaLink="false">https://nekumiyama.github.io/amaNekublog/20200917_category2/</guid><pubDate>Thu, 17 Sep 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;前回に引き続き、GatsbyJSを使ったカテゴリ別記事一覧ページの作成について解説します。&lt;/p&gt;
+&lt;p&gt;今回は以下の手順の3,4を解説します。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;markdownファイルのfrontmatterに「カテゴリ」を追加する&lt;/li&gt;
+&lt;li&gt;クエリを記述して、投稿のすべてのカテゴリを取得する&lt;/li&gt;
+&lt;li&gt;カテゴリページテンプレートを作成する（/{category}に）&lt;/li&gt;
+&lt;li&gt;そのテンプレートを使用してページをレンダリングするようにgatsby-node.jsを変更する&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;1. 実装&lt;/h2&gt;
+&lt;hr&gt;
+&lt;h3&gt;1-1. カテゴリページテンプレートを作成する（/{category}に）&lt;/h3&gt;
+&lt;p&gt;カテゴリのページは複数作成したいです。一つずつ作成することもできますが、それだと効率が悪い（カテゴリのページを修正したい場合、複数個同じ修正が必要）ですよね。そこで、カテゴリページ用のテンプレートを作成します。&lt;/p&gt;
+&lt;p&gt;ページのテンプレートは &lt;code class=&quot;language-text&quot;&gt;/src/templates&lt;/code&gt; に配置します。すでにブログ記事ページ用のテンプレートファイル &lt;code class=&quot;language-text&quot;&gt;blog-post.js&lt;/code&gt; が置いてありますね。ここに &lt;code class=&quot;language-text&quot;&gt;category.js&lt;/code&gt; という名前でテンプレートファイルを新規作成します。&lt;/p&gt;
+&lt;p&gt;ファイルの内容ですが、カテゴリページはホームページ（記事一覧ページ）と同じレイアウトにしたいので、&lt;code class=&quot;language-text&quot;&gt;/src/pages/index.js&lt;/code&gt; を流用することにしました。結果、以下のようになりました。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; React &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;react&quot;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Link&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; graphql &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;gatsby&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; Layout &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;../components/layout&quot;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;SEO&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;../components/seo&quot;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; Postcategory &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;../components/postcategory&quot;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; rhythm &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;../utils/typography&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;CategoryTemplate&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; data&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; pageContext&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; location &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; siteTitle &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;site&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;siteMetadata&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;title
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; posts &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;allMarkdownRemark&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;edges
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; category &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; pageContext
+
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Layout&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;location&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;siteTitle&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;SEO&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;category&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt; | amaNekublog&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;h2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;category&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;h2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;hr&lt;/span&gt;
+        &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          marginBottom&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;rhythm&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;posts&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; node &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; title &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; node&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;frontmatter&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;title &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; node&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fields&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;slug
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+          &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;article&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;node&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fields&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;slug&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;header&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+              &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;h3&lt;/span&gt;
+                &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                  marginBottom&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;rhythm&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+              &lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Link&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; boxShadow&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;node&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fields&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;slug&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+                  &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;title&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Link&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+              &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;h3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+              &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;small&lt;/span&gt;
+                &lt;span class=&quot;token attr-name&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                  display&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                  marginBottom&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;rhythm&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;
+              &lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;node&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;frontmatter&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;date&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+              &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;small&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;header&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+              &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Postcategory&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;postcategory&lt;/span&gt;&lt;span class=&quot;token script language-javascript&quot;&gt;&lt;span class=&quot;token script-punctuation punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;node&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;frontmatter&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;category&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+            &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+          &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;article&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token plain-text&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Layout&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; CategoryTemplate
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; pageQuery &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; graphql&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;
+  query($category: String) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { category: { in: [$category] } } }
+    ) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: &quot;YYYY.MM.DD&quot;)
+            title
+            description
+            category
+          }
+        }
+      }
+    }
+  }
+&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;以下、詳細解説&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;CategoryTemplate&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; data&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; pageContext&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; location &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; CategoryTemplate&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Gatsbyにページレンダリングをしてもらいたいページの基を「&lt;code class=&quot;language-text&quot;&gt;CategoryTemplate&lt;/code&gt;」として定義し、それをデフォルトエクスポートします。関数の引数に渡されるものは次の通り。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;data&lt;/code&gt;：このソース内のGraphQLクエリの結果&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;pageContext&lt;/code&gt;：コンテキスト情報。任意に設定でき、ここではカテゴリ名が渡されるようにしています。&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;lacation&lt;/code&gt;：ページのパス&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;graphql&quot;&gt;&lt;pre class=&quot;language-graphql&quot;&gt;&lt;code class=&quot;language-graphql&quot;&gt;export const pageQuery &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; graphql`
+  &lt;span class=&quot;token keyword&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$category&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; String&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    site &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      siteMetadata &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        title
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    allMarkdownRemark&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;token attr-name&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;fields&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;frontmatter___date&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;order&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;DESC&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;token attr-name&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;frontmatter&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;category&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$category&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      edges &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        node &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          excerpt
+          fields &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            slug
+          &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          frontmatter &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            date&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token attr-name&quot;&gt;formatString&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;YYYY.MM.DD&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+            title
+            description
+            category
+          &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+`&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;前回解説したGraphQLです。ここでは変数名を &lt;code class=&quot;language-text&quot;&gt;pageQuery&lt;/code&gt; としていますが、決まりはないそうです。この結果が &lt;code class=&quot;language-text&quot;&gt;CategoryTemplate&lt;/code&gt; の引数 &lt;code class=&quot;language-text&quot;&gt;data&lt;/code&gt; に渡されます。また、コンテキスト情報はこのクエリのパラメータ(&lt;code class=&quot;language-text&quot;&gt;$category: String&lt;/code&gt;)としても利用でき、特定のカテゴリだけがフィルターにかかるようにしています。&lt;/p&gt;
+&lt;h3&gt;1-2. そのテンプレートを使用してページをレンダリングするようにgatsby-node.jsを変更する&lt;/h3&gt;
+&lt;p&gt;ページを動的にレンダリングする場合は、GatsbyのNode APIの一つ「&lt;code class=&quot;language-text&quot;&gt;CreatePages&lt;/code&gt;」を利用します。&lt;/p&gt;
+&lt;p&gt;Node APIを利用するには、プロジェクトのルート直下にある&lt;code class=&quot;language-text&quot;&gt;gatsby-node.js&lt;/code&gt;にて実装し、それをエクスポートします。gatsby-starter-blogでは、すでに記事ページ作成用に&lt;code class=&quot;language-text&quot;&gt;CreatePages&lt;/code&gt;を実装していましたので、これを少し修正するだけでOKです。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;exports&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;createPages&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; graphql&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; actions &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; createPage &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; actions
+
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; blogPostTemplate &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; path&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;./src/templates/blog-post.js&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; categoryTemplate &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; path&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;./src/templates/category.js&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;graphql&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;
+      {
+        allMarkdownRemark(
+          sort: { fields: [frontmatter___date], order: DESC }
+          limit: 1000
+        ) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+              }
+            }
+          }
+        }
+        site {
+          siteMetadata {
+            categories {
+              name
+            }
+          }
+        }
+      }
+    &lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;result&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;errors&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;throw&lt;/span&gt; result&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;errors
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;// Create blog posts pages.&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// ※省略&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;// Create category pages.&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; categories &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; result&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;site&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;siteMetadata&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;categories
+
+  categories&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;category&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;createPage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      path&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;category&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      component&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; categoryTemplate&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      context&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        category&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; category&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;以下、詳細解説&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; categoryTemplate &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; path&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;./src/templates/category.js&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;1-1. で作成したテンプレートのソースコードを読み込んでいます。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;graphql&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;
+    {
+      allMarkdownRemark(
+        //省略
+      site {
+        siteMetadata {
+          categories {
+            name
+          }
+        }
+      }
+    }
+  &lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;GraphQLです。&lt;code class=&quot;language-text&quot;&gt;allMarkdownRemark&lt;/code&gt; の箇所は記事ページで必要なクエリなので、省略します。&lt;code class=&quot;language-text&quot;&gt;site&lt;/code&gt; の箇所では、あらかじめメタデータとして&lt;code class=&quot;language-text&quot;&gt;gatsby-config.js&lt;/code&gt;に登録しておいた、本ブログの全カテゴリの名前を取得しています。&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; categories &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; result&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;site&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;siteMetadata&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;categories
+
+categories&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;category&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;createPage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    path&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;category&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    component&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; categoryTemplate&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    context&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      category&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; category&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;各カテゴリごとに &lt;code class=&quot;language-text&quot;&gt;CreatePage&lt;/code&gt; を呼び出しています。&lt;code class=&quot;language-text&quot;&gt;CreatePage&lt;/code&gt; は、&lt;code class=&quot;language-text&quot;&gt;CreatePages&lt;/code&gt; で引数として渡している &lt;code class=&quot;language-text&quot;&gt;actions&lt;/code&gt; に含まれる関数の一つ（&lt;code class=&quot;language-text&quot;&gt;const { createPage } = actions&lt;/code&gt; で読み込み済み）です。&lt;code class=&quot;language-text&quot;&gt;CreatePage&lt;/code&gt; はその名の通りページを作成するための関数です。渡す引数は次の通り。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;path&lt;/code&gt;：作成するページのパス。単純にカテゴリ名にします。&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;component&lt;/code&gt;：読み込み済みのテンプレートのソースコードへのパス。&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;context&lt;/code&gt;：ページコンテキスト。テンプレート側で使います。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. 完成&lt;/h2&gt;
+&lt;p&gt;カテゴリ別の記事一覧ページができました！&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/amaNekublog/static/b282def7fc1bed73d76da4e218d4fb06/78597/categorypage.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 93.24324324324323%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsSAAALEgHS3X78AAACOklEQVQ4y61U227TQBD1/38Cf8AjvPACEn0AJFChNC1O2yRO0sRx4vtlL75sTmdsqyRRk0jQkUa7OzMe75w5O9bS2+DqZoif1zb+3E8wsB8QJSlYttstDuUl265YQmrEaY40L5AVEkmWoxAK/FljtjCslKRuzHMyXo+plcga66yEKA3CooKoDCJRodA1MsU+jVRV2NAqq6ZPeOKGh+U0dBNWYzptzN89K8eYA9uuzwrCGO7ah+v5kEqfLemcUsII0/kSzuwRQir8i+wlZDhqQ0obxkiWNXLCj9dUVkhECZ/wi2gN8rK1F7pCTGdWRd90MPQJvUzh1yLBrZvhdpnhMZKYBAKLWGGwSHE5i/HR9jEg37dJhKAo4ZD/mnw/pjG8VO/RycrWATx7BJ1kONvCI2J2S64fpsg/XGC7WOE1xEqZa4QNl+KlquWdvepKXyWq1SmVyJCwzfEFlmRzky526OWYhbL1ybKBxY7Pdz7e/17hjpwcPN4UWBE2If1kToH367zFjc/8AyY57/28w5Nj2SY4YSr5UFAH1euUXNhjeO8+oZy7HcD8SnqAdzl2ioP7T4+6W00XAA2HPuS523WfnFdNfFO9Ml81kZe1Jv6xj8vlYWKNQoULJ4W9FhhSMxiviV/guxPROW/JzDjNQtE2gPnHvPwyCvF1HBF+iuIFRoT7hmItP9e4ImLPY9lerOnHVdWPq2PltvYXfJYIIkTjGTTNxFPE3n2vx3xdwssbuG/eQg8nndOY/5o2T+6Dxm+Q+LKfAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;categorypage.png&quot;
+        title=&quot;categorypage.png&quot;
+        src=&quot;/amaNekublog/static/b282def7fc1bed73d76da4e218d4fb06/fcda8/categorypage.png&quot;
+        srcset=&quot;/amaNekublog/static/b282def7fc1bed73d76da4e218d4fb06/12f09/categorypage.png 148w,
+/amaNekublog/static/b282def7fc1bed73d76da4e218d4fb06/e4a3f/categorypage.png 295w,
+/amaNekublog/static/b282def7fc1bed73d76da4e218d4fb06/fcda8/categorypage.png 590w,
+/amaNekublog/static/b282def7fc1bed73d76da4e218d4fb06/efc66/categorypage.png 885w,
+/amaNekublog/static/b282def7fc1bed73d76da4e218d4fb06/78597/categorypage.png 947w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;以上です。今回の改修で何となくGatsbyJSのことや、JavaScriptのことがわかってきたので、良い挑戦ができたなと感じています。が、、まだまだブログとしてはいけてないので、少しずつ改善していけたらと思います。今後はブログをカスタマイズしたときに気まぐれに更新していこうと思います。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[【GatsbyJS】カテゴリ別の記事一覧ページを作る①]]></title><description><![CDATA[今回はカテゴリ別で記事一覧を表示するページを作っていきます。GatsbyJSの公式サイトに手順が載っていたため、これを参考に進めます。 ＜参考＞ https://www.gatsbyjs.com/docs/adding-tags-and-categories-to-blog…]]></description><link>https://nekumiyama.github.io/amaNekublog/20200915_category1/</link><guid isPermaLink="false">https://nekumiyama.github.io/amaNekublog/20200915_category1/</guid><pubDate>Tue, 15 Sep 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;今回はカテゴリ別で記事一覧を表示するページを作っていきます。GatsbyJSの公式サイトに手順が載っていたため、これを参考に進めます。&lt;/p&gt;
 &lt;p&gt;＜参考＞&lt;br&gt;
 &lt;a href=&quot;https://www.gatsbyjs.com/docs/adding-tags-and-categories-to-blog-posts/&quot;&gt;https://www.gatsbyjs.com/docs/adding-tags-and-categories-to-blog-posts/&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;1. 手順の把握&lt;/h2&gt;
