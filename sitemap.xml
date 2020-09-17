@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://nekumiyama.github.io/amaNekublog/amaNekublog/20200917_category2/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://nekumiyama.github.io/amaNekublog/amaNekublog/20200915_category1/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://nekumiyama.github.io/amaNekublog/amaNekublog/20200906_typography/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://nekumiyama.github.io/amaNekublog/amaNekublog/20200906_first-deploy/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://nekumiyama.github.io/amaNekublog/amaNekublog/20200904_hello-world/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://nekumiyama.github.io/amaNekublog/amaNekublog/Develop/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://nekumiyama.github.io/amaNekublog/amaNekublog/Create/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://nekumiyama.github.io/amaNekublog/amaNekublog/Learn/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://nekumiyama.github.io/amaNekublog/amaNekublog/Try/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://nekumiyama.github.io/amaNekublog/amaNekublog/Enjoy/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://nekumiyama.github.io/amaNekublog/amaNekublog/Think/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://nekumiyama.github.io/amaNekublog/amaNekublog/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://nekumiyama.github.io/amaNekublog/amaNekublog/using-typescript/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+</urlset>
