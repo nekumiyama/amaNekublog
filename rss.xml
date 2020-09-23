@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[amaNekublog]]></title><description><![CDATA[ゲーム・プログラミング・ドット絵・イラスト・デザインを中心にお役立ち情報から個人的な考えまで”あまねく”発信します。]]></description><link>https://nekumiyama.github.io/amaNekublog</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 23 Sep 2020 12:55:37 GMT</lastBuildDate><item><title><![CDATA[【GatsbyJS】カテゴリ別の記事一覧ページを作る②]]></title><description><![CDATA[前回に引き続き、GatsbyJSを使ったカテゴリ別記事一覧ページの作成について解説します。 今回は以下の手順の3,4を解説します。 markdownファイルのfrontmatter…]]></description><link>https://nekumiyama.github.io/amaNekublog/20200917_category2/</link><guid isPermaLink="false">https://nekumiyama.github.io/amaNekublog/20200917_category2/</guid><pubDate>Thu, 17 Sep 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;前回に引き続き、GatsbyJSを使ったカテゴリ別記事一覧ページの作成について解説します。&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[amaNekublog]]></title><description><![CDATA[ゲーム・プログラミング・ドット絵・イラスト・デザインを中心にお役立ち情報から個人的な考えまで”あまねく”発信します。]]></description><link>https://nekumiyama.github.io/amaNekublog</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 23 Sep 2020 13:27:48 GMT</lastBuildDate><item><title><![CDATA[【GatsbyJS】カテゴリ別の記事一覧ページを作る②]]></title><description><![CDATA[前回に引き続き、GatsbyJSを使ったカテゴリ別記事一覧ページの作成について解説します。 今回は以下の手順の3,4を解説します。 markdownファイルのfrontmatter…]]></description><link>https://nekumiyama.github.io/amaNekublog/20200917_category2/</link><guid isPermaLink="false">https://nekumiyama.github.io/amaNekublog/20200917_category2/</guid><pubDate>Thu, 17 Sep 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;前回に引き続き、GatsbyJSを使ったカテゴリ別記事一覧ページの作成について解説します。&lt;/p&gt;
 &lt;p&gt;今回は以下の手順の3,4を解説します。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;markdownファイルのfrontmatterに「カテゴリ」を追加する&lt;/li&gt;
@@ -240,7 +240,7 @@ categories&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/amaNekublog/static/b282def7fc1bed73d76da4e218d4fb06/78597/categorypage.png&quot;
+    href=&quot;/static/b282def7fc1bed73d76da4e218d4fb06/78597/categorypage.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -253,12 +253,12 @@ categories&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;categorypage.png&quot;
         title=&quot;categorypage.png&quot;
-        src=&quot;/amaNekublog/static/b282def7fc1bed73d76da4e218d4fb06/fcda8/categorypage.png&quot;
-        srcset=&quot;/amaNekublog/static/b282def7fc1bed73d76da4e218d4fb06/12f09/categorypage.png 148w,
-/amaNekublog/static/b282def7fc1bed73d76da4e218d4fb06/e4a3f/categorypage.png 295w,
-/amaNekublog/static/b282def7fc1bed73d76da4e218d4fb06/fcda8/categorypage.png 590w,
-/amaNekublog/static/b282def7fc1bed73d76da4e218d4fb06/efc66/categorypage.png 885w,
-/amaNekublog/static/b282def7fc1bed73d76da4e218d4fb06/78597/categorypage.png 947w&quot;
+        src=&quot;/static/b282def7fc1bed73d76da4e218d4fb06/fcda8/categorypage.png&quot;
+        srcset=&quot;/static/b282def7fc1bed73d76da4e218d4fb06/12f09/categorypage.png 148w,
+/static/b282def7fc1bed73d76da4e218d4fb06/e4a3f/categorypage.png 295w,
+/static/b282def7fc1bed73d76da4e218d4fb06/fcda8/categorypage.png 590w,
+/static/b282def7fc1bed73d76da4e218d4fb06/efc66/categorypage.png 885w,
+/static/b282def7fc1bed73d76da4e218d4fb06/78597/categorypage.png 947w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -305,7 +305,7 @@ category&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span cla
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/amaNekublog/static/f9a6437ab6b533ca0ec8ddc9d87a3feb/71ee9/graphiql.png&quot;
+    href=&quot;/static/f9a6437ab6b533ca0ec8ddc9d87a3feb/71ee9/graphiql.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -318,12 +318,12 @@ category&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span cla
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;GraphiQL&quot;
         title=&quot;GraphiQL&quot;
-        src=&quot;/amaNekublog/static/f9a6437ab6b533ca0ec8ddc9d87a3feb/fcda8/graphiql.png&quot;
-        srcset=&quot;/amaNekublog/static/f9a6437ab6b533ca0ec8ddc9d87a3feb/12f09/graphiql.png 148w,
-/amaNekublog/static/f9a6437ab6b533ca0ec8ddc9d87a3feb/e4a3f/graphiql.png 295w,
-/amaNekublog/static/f9a6437ab6b533ca0ec8ddc9d87a3feb/fcda8/graphiql.png 590w,
-/amaNekublog/static/f9a6437ab6b533ca0ec8ddc9d87a3feb/efc66/graphiql.png 885w,
-/amaNekublog/static/f9a6437ab6b533ca0ec8ddc9d87a3feb/71ee9/graphiql.png 1081w&quot;
+        src=&quot;/static/f9a6437ab6b533ca0ec8ddc9d87a3feb/fcda8/graphiql.png&quot;
+        srcset=&quot;/static/f9a6437ab6b533ca0ec8ddc9d87a3feb/12f09/graphiql.png 148w,
+/static/f9a6437ab6b533ca0ec8ddc9d87a3feb/e4a3f/graphiql.png 295w,
+/static/f9a6437ab6b533ca0ec8ddc9d87a3feb/fcda8/graphiql.png 590w,
+/static/f9a6437ab6b533ca0ec8ddc9d87a3feb/efc66/graphiql.png 885w,
+/static/f9a6437ab6b533ca0ec8ddc9d87a3feb/71ee9/graphiql.png 1081w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -351,7 +351,7 @@ category&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span cla
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/amaNekublog/static/020dd36fc7acbc15745eefc9aeb9f915/236d7/queryCategory.png&quot;
+    href=&quot;/static/020dd36fc7acbc15745eefc9aeb9f915/236d7/queryCategory.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -364,13 +364,13 @@ category&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span cla
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;Query Category&quot;
         title=&quot;Query Category&quot;
-        src=&quot;/amaNekublog/static/020dd36fc7acbc15745eefc9aeb9f915/fcda8/queryCategory.png&quot;
-        srcset=&quot;/amaNekublog/static/020dd36fc7acbc15745eefc9aeb9f915/12f09/queryCategory.png 148w,
-/amaNekublog/static/020dd36fc7acbc15745eefc9aeb9f915/e4a3f/queryCategory.png 295w,
-/amaNekublog/static/020dd36fc7acbc15745eefc9aeb9f915/fcda8/queryCategory.png 590w,
-/amaNekublog/static/020dd36fc7acbc15745eefc9aeb9f915/efc66/queryCategory.png 885w,
-/amaNekublog/static/020dd36fc7acbc15745eefc9aeb9f915/c83ae/queryCategory.png 1180w,
-/amaNekublog/static/020dd36fc7acbc15745eefc9aeb9f915/236d7/queryCategory.png 1486w&quot;
+        src=&quot;/static/020dd36fc7acbc15745eefc9aeb9f915/fcda8/queryCategory.png&quot;
+        srcset=&quot;/static/020dd36fc7acbc15745eefc9aeb9f915/12f09/queryCategory.png 148w,
+/static/020dd36fc7acbc15745eefc9aeb9f915/e4a3f/queryCategory.png 295w,
+/static/020dd36fc7acbc15745eefc9aeb9f915/fcda8/queryCategory.png 590w,
+/static/020dd36fc7acbc15745eefc9aeb9f915/efc66/queryCategory.png 885w,
+/static/020dd36fc7acbc15745eefc9aeb9f915/c83ae/queryCategory.png 1180w,
+/static/020dd36fc7acbc15745eefc9aeb9f915/236d7/queryCategory.png 1486w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -635,7 +635,7 @@ Wordpress2016&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;s
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/amaNekublog/static/82a363d2742013262e26c52b5b79656f/bb3ba/image.png&quot;
+    href=&quot;/static/82a363d2742013262e26c52b5b79656f/bb3ba/image.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -648,12 +648,12 @@ Wordpress2016&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;s
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;image.png&quot;
         title=&quot;image.png&quot;
-        src=&quot;/amaNekublog/static/82a363d2742013262e26c52b5b79656f/fcda8/image.png&quot;
-        srcset=&quot;/amaNekublog/static/82a363d2742013262e26c52b5b79656f/12f09/image.png 148w,
-/amaNekublog/static/82a363d2742013262e26c52b5b79656f/e4a3f/image.png 295w,
-/amaNekublog/static/82a363d2742013262e26c52b5b79656f/fcda8/image.png 590w,
-/amaNekublog/static/82a363d2742013262e26c52b5b79656f/efc66/image.png 885w,
-/amaNekublog/static/82a363d2742013262e26c52b5b79656f/bb3ba/image.png 1121w&quot;
+        src=&quot;/static/82a363d2742013262e26c52b5b79656f/fcda8/image.png&quot;
+        srcset=&quot;/static/82a363d2742013262e26c52b5b79656f/12f09/image.png 148w,
+/static/82a363d2742013262e26c52b5b79656f/e4a3f/image.png 295w,
+/static/82a363d2742013262e26c52b5b79656f/fcda8/image.png 590w,
+/static/82a363d2742013262e26c52b5b79656f/efc66/image.png 885w,
+/static/82a363d2742013262e26c52b5b79656f/bb3ba/image.png 1121w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -671,7 +671,7 @@ Wordpress2016&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;s
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/amaNekublog/static/e5a1ca44f509938f846f42dd595b4677/ce6cc/gatsby-starter-blog-image.png&quot;
+    href=&quot;/static/e5a1ca44f509938f846f42dd595b4677/ce6cc/gatsby-starter-blog-image.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -684,13 +684,13 @@ Wordpress2016&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;s
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;gatsby-starter-blog-image&quot;
         title=&quot;gatsby-starter-blog-image&quot;
-        src=&quot;/amaNekublog/static/e5a1ca44f509938f846f42dd595b4677/fcda8/gatsby-starter-blog-image.png&quot;
-        srcset=&quot;/amaNekublog/static/e5a1ca44f509938f846f42dd595b4677/12f09/gatsby-starter-blog-image.png 148w,
-/amaNekublog/static/e5a1ca44f509938f846f42dd595b4677/e4a3f/gatsby-starter-blog-image.png 295w,
-/amaNekublog/static/e5a1ca44f509938f846f42dd595b4677/fcda8/gatsby-starter-blog-image.png 590w,
-/amaNekublog/static/e5a1ca44f509938f846f42dd595b4677/efc66/gatsby-starter-blog-image.png 885w,
-/amaNekublog/static/e5a1ca44f509938f846f42dd595b4677/c83ae/gatsby-starter-blog-image.png 1180w,
-/amaNekublog/static/e5a1ca44f509938f846f42dd595b4677/ce6cc/gatsby-starter-blog-image.png 1551w&quot;
+        src=&quot;/static/e5a1ca44f509938f846f42dd595b4677/fcda8/gatsby-starter-blog-image.png&quot;
+        srcset=&quot;/static/e5a1ca44f509938f846f42dd595b4677/12f09/gatsby-starter-blog-image.png 148w,
+/static/e5a1ca44f509938f846f42dd595b4677/e4a3f/gatsby-starter-blog-image.png 295w,
+/static/e5a1ca44f509938f846f42dd595b4677/fcda8/gatsby-starter-blog-image.png 590w,
+/static/e5a1ca44f509938f846f42dd595b4677/efc66/gatsby-starter-blog-image.png 885w,
+/static/e5a1ca44f509938f846f42dd595b4677/c83ae/gatsby-starter-blog-image.png 1180w,
+/static/e5a1ca44f509938f846f42dd595b4677/ce6cc/gatsby-starter-blog-image.png 1551w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -883,7 +883,7 @@ Wordpress2016&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;s
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/amaNekublog/static/c68e42c84d22d6d9568eebfb136edd7a/19a15/amaNekublog-image1.png&quot;
+    href=&quot;/static/c68e42c84d22d6d9568eebfb136edd7a/19a15/amaNekublog-image1.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -896,13 +896,13 @@ Wordpress2016&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;s
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;amaNekublog-image1&quot;
         title=&quot;amaNekublog-image1&quot;
-        src=&quot;/amaNekublog/static/c68e42c84d22d6d9568eebfb136edd7a/fcda8/amaNekublog-image1.png&quot;
-        srcset=&quot;/amaNekublog/static/c68e42c84d22d6d9568eebfb136edd7a/12f09/amaNekublog-image1.png 148w,
-/amaNekublog/static/c68e42c84d22d6d9568eebfb136edd7a/e4a3f/amaNekublog-image1.png 295w,
-/amaNekublog/static/c68e42c84d22d6d9568eebfb136edd7a/fcda8/amaNekublog-image1.png 590w,
-/amaNekublog/static/c68e42c84d22d6d9568eebfb136edd7a/efc66/amaNekublog-image1.png 885w,
-/amaNekublog/static/c68e42c84d22d6d9568eebfb136edd7a/c83ae/amaNekublog-image1.png 1180w,
-/amaNekublog/static/c68e42c84d22d6d9568eebfb136edd7a/19a15/amaNekublog-image1.png 1229w&quot;
+        src=&quot;/static/c68e42c84d22d6d9568eebfb136edd7a/fcda8/amaNekublog-image1.png&quot;
+        srcset=&quot;/static/c68e42c84d22d6d9568eebfb136edd7a/12f09/amaNekublog-image1.png 148w,
+/static/c68e42c84d22d6d9568eebfb136edd7a/e4a3f/amaNekublog-image1.png 295w,
+/static/c68e42c84d22d6d9568eebfb136edd7a/fcda8/amaNekublog-image1.png 590w,
+/static/c68e42c84d22d6d9568eebfb136edd7a/efc66/amaNekublog-image1.png 885w,
+/static/c68e42c84d22d6d9568eebfb136edd7a/c83ae/amaNekublog-image1.png 1180w,
+/static/c68e42c84d22d6d9568eebfb136edd7a/19a15/amaNekublog-image1.png 1229w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
@@ -915,7 +915,7 @@ Wordpress2016&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;s
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/amaNekublog/static/c6de6df6751d4122a8fc4877be000c1d/20f89/amaNekublog-image2.png&quot;
+    href=&quot;/static/c6de6df6751d4122a8fc4877be000c1d/20f89/amaNekublog-image2.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -928,13 +928,13 @@ Wordpress2016&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;s
         class=&quot;gatsby-resp-image-image&quot;
         alt=&quot;amaNekublog-image2&quot;
         title=&quot;amaNekublog-image2&quot;
-        src=&quot;/amaNekublog/static/c6de6df6751d4122a8fc4877be000c1d/fcda8/amaNekublog-image2.png&quot;
-        srcset=&quot;/amaNekublog/static/c6de6df6751d4122a8fc4877be000c1d/12f09/amaNekublog-image2.png 148w,
-/amaNekublog/static/c6de6df6751d4122a8fc4877be000c1d/e4a3f/amaNekublog-image2.png 295w,
-/amaNekublog/static/c6de6df6751d4122a8fc4877be000c1d/fcda8/amaNekublog-image2.png 590w,
-/amaNekublog/static/c6de6df6751d4122a8fc4877be000c1d/efc66/amaNekublog-image2.png 885w,
-/amaNekublog/static/c6de6df6751d4122a8fc4877be000c1d/c83ae/amaNekublog-image2.png 1180w,
-/amaNekublog/static/c6de6df6751d4122a8fc4877be000c1d/20f89/amaNekublog-image2.png 1213w&quot;
+        src=&quot;/static/c6de6df6751d4122a8fc4877be000c1d/fcda8/amaNekublog-image2.png&quot;
+        srcset=&quot;/static/c6de6df6751d4122a8fc4877be000c1d/12f09/amaNekublog-image2.png 148w,
+/static/c6de6df6751d4122a8fc4877be000c1d/e4a3f/amaNekublog-image2.png 295w,
+/static/c6de6df6751d4122a8fc4877be000c1d/fcda8/amaNekublog-image2.png 590w,
+/static/c6de6df6751d4122a8fc4877be000c1d/efc66/amaNekublog-image2.png 885w,
+/static/c6de6df6751d4122a8fc4877be000c1d/c83ae/amaNekublog-image2.png 1180w,
+/static/c6de6df6751d4122a8fc4877be000c1d/20f89/amaNekublog-image2.png 1213w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
         style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
         loading=&quot;lazy&quot;
